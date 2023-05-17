@@ -2,12 +2,7 @@ import React, { useContext, useState } from "react";
 import GroupIcon from "../../../Asset/images/Vector.png";
 import Card from "./Card";
 import InfoIcon from "../../../Asset/images/Vector (3).png";
-
-import {
-  MdOutlineLocationOn,
-  MdModeEdit,
-  MdOutlineClose,
-} from "react-icons/md";
+import { MdOutlineLocationOn, MdModeEdit, MdOutlineClose } from "react-icons/md";
 import Signup from "../Signup/Signup";
 import { MyContext } from "../../../App";
 import { BsBoxArrowInRight } from "react-icons/bs";
@@ -20,10 +15,12 @@ import FollowUser4 from "../../../Asset/images/Rectangle 6 (3).png";
 import { useMediaQuery } from "react-responsive";
 import float from "../../../Asset/images/float.png";
 import likeicon from "../../../Asset/images/Vector (4).png";
+
 const Article = () => {
+
   const { isSignedIn, setIsSignedIn } = useContext(MyContext);
-  const [location_edit_enabled, setLocation_edit_enabled] = useState(false);
-  const [location_update, setLocation_update] = useState("Noida, India");
+  const [locationEditEnabled, setLocationEditEnabled] = useState(false);
+  const [locationUpdate, setLocationUpdate] = useState("Noida, India");
   const [follow_groups, setFollow_groups] = useState([
     [FollowUser1, "Leisure", false],
     [FollowUser2, "Activism", false],
@@ -31,7 +28,7 @@ const Article = () => {
     [FollowUser4, "Philosophy", false],
   ]);
 
-  const Updating_follow_grp = (clicked_group) => {
+  const Update_followers = (clicked_group) => {
     follow_groups.map(
       (group, index) =>
         group[1] === clicked_group && (follow_groups[index][2] = !group[2])
@@ -51,17 +48,17 @@ const Article = () => {
           marginRight: "15%",
         }}
       >
+
+        {/* Nav item in Desktop View */}
         {breakpoints_desktop ? (
           <nav
+          className= "nav"
             style={{
-              display: "flex",
-              justifyContent: "space-between",
-              flexDirection: "row",
+              justifyContent: "space-between"
             }}
-            className="nav"
           >
             <div style={{ display: "flex", flexDirection: "row" }}>
-              <a
+              <a 
                 style={{ color: "black" }}
                 className="nav-link active"
                 aria-current="page"
@@ -101,6 +98,7 @@ const Article = () => {
                 ></button>
               </div>
 
+              {/* If User Signed In Group Button will change */}
               {isSignedIn ? (
                 <>
                   <button
@@ -113,10 +111,7 @@ const Article = () => {
                     className="btn btn-sm"
                     type="button"
                   >
-                    <span>
-                      {" "}
-                      <BsBoxArrowInRight fontSize={"1.5em"} />{" "}
-                    </span>{" "}
+                    <span><BsBoxArrowInRight fontSize={"1.5em"} /></span>
                     &nbsp; Leave Group
                   </button>
                 </>
@@ -131,7 +126,7 @@ const Article = () => {
                   >
                     <span>
                       <img src={GroupIcon} alt="Add Group icon" />
-                    </span>{" "}
+                    </span>
                     &nbsp; Join Group
                   </button>
                 </>
@@ -140,6 +135,7 @@ const Article = () => {
           </nav>
         ) : (
           <>
+          { /* Nav item in Mobile View */}
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <p style={{ fontWeight: "600", marginLeft: "3.75%" }}>
                 Posts(368)
@@ -161,10 +157,12 @@ const Article = () => {
           </>
         )}
       </div>
+
       {/* Divider */}
       {breakpoints_desktop && (
         <hr style={{ width: "70%", margin: "auto", marginTop: "12px" }} />
       )}
+
       {/* Article-Left */}
       &nbsp;
       <div
@@ -185,7 +183,7 @@ const Article = () => {
           <Card />
         </div>
 
-        {/* Article-Right */}
+        {/* Article-Right Location */}
         {breakpoints_desktop && (
           <div
             style={{ marginRight: "17.5%", width: "243px", marginTop: "12px" }}
@@ -208,7 +206,7 @@ const Article = () => {
                 <MdOutlineLocationOn />
               </span>
               <input
-                disabled={!location_edit_enabled}
+                disabled={!locationEditEnabled}
                 style={{
                   background: "white",
                   borderTop: "none",
@@ -220,13 +218,13 @@ const Article = () => {
                 type="text"
                 className="form-control"
                 placeholder="Enter your location"
-                value={location_update}
+                value={locationUpdate}
                 onChange={(e) => {
-                  setLocation_update(e.target.value);
+                  setLocationUpdate(e.target.value);
                 }}
                 aria-describedby="addon-wrapping"
               />
-              {location_edit_enabled ? (
+              {locationEditEnabled ? (
                 <>
                   <span
                     style={{
@@ -242,7 +240,7 @@ const Article = () => {
                     label="Enter location"
                   >
                     <button
-                      onClick={() => setLocation_edit_enabled(false)}
+                      onClick={() => setLocationEditEnabled(false)}
                       style={{ marginRight: "-15px" }}
                       type="button"
                       className="btn"
@@ -266,7 +264,7 @@ const Article = () => {
                     id="addon-wrapping"
                   >
                     <button
-                      onClick={() => setLocation_edit_enabled(true)}
+                      onClick={() => setLocationEditEnabled(true)}
                       style={{ marginRight: "-15px" }}
                       type="button"
                       className="btn"
@@ -291,19 +289,20 @@ const Article = () => {
                 src={InfoIcon}
               />
               <p style={{ color: "gray", fontSize: "15px" }}>
-                Your location will help us serve better and extend a
-                personalised experience.
+                Your location will help us serve better and extend a personalised experience.
               </p>
             </div>
             <div style={{ display: !isSignedIn && "none" }}>
               <br />
               <br />
+
+              {/* Article-Right Groups  */}
               <h6>
                 <img
                   style={{ marginTop: "-5px" }}
                   src={likeicon}
                   alt="likeIcon"
-                />{" "}
+                />
                 RECOMMENDED GROUPS
               </h6>
               {follow_groups.map((group) => (
@@ -330,7 +329,7 @@ const Article = () => {
                       </h6>
                     </div>
                     <button
-                      onClick={() => Updating_follow_grp(group[1])}
+                      onClick={() => Update_followers(group[1])}
                       type="button"
                       style={{
                         backgroundColor: group[2] ? "black" : "#EDEEF0",
@@ -350,7 +349,6 @@ const Article = () => {
               ))}
               <br />
               <br />
-              <br />
               <p
                 style={{
                   color: "#2F6CE5",
@@ -365,10 +363,10 @@ const Article = () => {
         )}
       </div>
 
-      {/* <Login /> */}
+      
       <Signup />
 
-      {/* Float icon */}
+      {/* Float icon for Mobile View*/}
       {!breakpoints_desktop && (
         <a
           href=" "

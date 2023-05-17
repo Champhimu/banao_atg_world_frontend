@@ -14,7 +14,8 @@ const Signup = () => {
   return (
     <>
       <div>
-        {/* <!-- Modal --> */}
+
+        {/* <!-- SignUp Desktop View --> */}
         <div
           className="modal fade"
           id="staticBackdrop"
@@ -227,6 +228,8 @@ const Signup = () => {
           </div>
         </div>
       </div>
+
+      {/* SignUp Mobile View- Bottom */}
       <div
         style={{ borderRadius: "8px 8px 0px 0px", height: "500px" }}
         className="offcanvas offcanvas-bottom"
@@ -393,6 +396,7 @@ const Signup = () => {
           </p>
         </div>
       </div>
+      
       <Login />
     </>
   );

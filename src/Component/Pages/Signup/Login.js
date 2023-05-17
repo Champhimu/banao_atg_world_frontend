@@ -10,6 +10,7 @@ const Login = () => {
 
   return (
     <>
+    {/* SignIn Desktop View  */}
       <div
         className="modal fade"
         id="signupmodal"
@@ -184,6 +185,7 @@ const Login = () => {
         </div>
       </div>
 
+      {/* SignIn Mobile View- Bottom */}
       <div
         style={{ borderRadius: "8px 8px 0px 0px", height: "500px" }}
         className="offcanvas offcanvas-bottom"

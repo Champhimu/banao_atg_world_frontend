@@ -12,17 +12,14 @@ const Banner = () => {
 
   return (
     <div style={{ backgroundColor: "black" }}>
+
       {/* Banner image */}
       <img
         src={bannerimg}
         alt="banner"
         style={{
           width: "100%",
-          height: breakpoints_desktop
-            ? "440px"
-            : breakpoints_mobile
-            ? "300px"
-            : "200px",
+          height: breakpoints_desktop ? "440px" : breakpoints_mobile ? "300px" : "200px",
           opacity: "0.5",
           marginTop: breakpoints_desktop ? "72px" : "",
         }}
@@ -32,16 +29,8 @@ const Banner = () => {
       <h2
         style={{
           position: "absolute",
-          marginTop: breakpoints_desktop
-            ? "-160px"
-            : breakpoints_mobile
-            ? "-90px"
-            : "-80px",
-          marginLeft: breakpoints_desktop
-            ? "15%"
-            : breakpoints_mobile
-            ? "5%"
-            : "2%",
+          marginTop: breakpoints_desktop ? "-160px" : breakpoints_mobile? "-90px": "-80px",
+          marginLeft: breakpoints_desktop? "15%": breakpoints_mobile? "5%": "2%",
           color: "white",
           fontWeight: "700",
           fontSize: breakpoints_desktop ? "" : "20px",
@@ -55,22 +44,15 @@ const Banner = () => {
         style={{
           position: "absolute",
           color: "white",
-          marginTop: breakpoints_desktop
-            ? "-120px"
-            : breakpoints_mobile
-            ? "-55px"
-            : "-50px",
-          marginLeft: breakpoints_desktop
-            ? "15%"
-            : breakpoints_mobile
-            ? "5%"
-            : "2%",
+          marginTop: breakpoints_desktop? "-120px": breakpoints_mobile? "-55px": "-50px",
+          marginLeft: breakpoints_desktop? "15%" : breakpoints_mobile ? "5%" : "2%",
           fontSize: breakpoints_desktop ? "" : "15px",
         }}
       >
         142,765 Computer Engineers follow this
       </p>
 
+        {/* Mobile View Arrow and Button */}
       {!breakpoints_desktop && (
         <>
           <p>
@@ -78,11 +60,7 @@ const Banner = () => {
               style={{
                 cursor: "pointer",
                 position: "absolute",
-                marginTop: breakpoints_desktop
-                  ? "-275px"
-                  : breakpoints_mobile
-                  ? "-280px"
-                  : "-180px",
+                marginTop: breakpoints_desktop ? "-275px" : breakpoints_mobile ? "-280px" : "-180px",
                 marginLeft: "3.75%",
                 color: "white",
                 fontSize: "1.2em",

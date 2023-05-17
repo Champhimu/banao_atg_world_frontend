@@ -13,6 +13,7 @@ import { RiCalendarEventFill } from "react-icons/ri";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { BsBag } from "react-icons/bs";
 import { useMediaQuery } from "react-responsive";
+import {AiOutlineEye} from 'react-icons/ai';
 
 const Card = () => {
   const breakpoints_desktop = useMediaQuery({ query: "(min-width: 790px)" });
@@ -81,10 +82,11 @@ const Card = () => {
               whiteSpace: "nowrap",
             }}
           >
-            I’ve worked in UX for the better part of a decade. From now on, I
-            plan to releif the world
+            I’ve worked in UX for the better part of a decade. From now on, I plan to releif the world
           </h6>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
+
+            {/* Card 1 Profile Desktop View */}
             {breakpoints_desktop ? (
               <>
                 <div style={{ display: "flex" }}>
@@ -105,10 +107,8 @@ const Card = () => {
                   </h6>
                 </div>
                 <div style={{ display: "flex" }}>
-                  <img
-                    alt="views"
+                  <AiOutlineEye
                     style={{ width: "18px", height: "18px", marginTop: "10px" }}
-                    src="https://img.icons8.com/material-outlined/24/525252/visible--v1.png"
                   />
                   &nbsp;
                   <p
@@ -133,6 +133,7 @@ const Card = () => {
               </>
             ) : (
               <>
+              {/* Card 1 Profile Mobile View */}
                 <div style={{ display: "flex" }}>
                   <img
                     style={{ width: "40px", height: "40px" }}
@@ -239,6 +240,8 @@ const Card = () => {
             plan to releif the world.
           </h6>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
+
+            {/* Card 2 Profile Desktop View */}
             {breakpoints_desktop ? (
               <>
                 <div style={{ display: "flex" }}>
@@ -259,10 +262,8 @@ const Card = () => {
                   </h6>
                 </div>
                 <div style={{ display: "flex" }}>
-                  <img
-                    alt="views"
+                  <AiOutlineEye
                     style={{ width: "18px", height: "18px", marginTop: "10px" }}
-                    src="https://img.icons8.com/material-outlined/24/525252/visible--v1.png"
                   />
                   &nbsp;
                   <p
@@ -287,7 +288,8 @@ const Card = () => {
               </>
             ) : (
               <>
-                <div style={{ display: "flex" }}>
+              {/* Card 2 Profile Mobile View */}
+              <div style={{ display: "flex" }}>
                   <img
                     style={{ width: "40px", height: "40px" }}
                     src={User2}
@@ -338,7 +340,7 @@ const Card = () => {
           border: breakpoints_desktop ? "" : "none",
         }}
       >
-        <img src={card3} className="card-img-top" alt="Third Pic" />
+        <img src={card3} className="card-img-top" alt="Card 3" />
         <div className="card-body">
           <h6 style={{ fontWeight: "540" }} className="card-title">
             &#128197; Meetup
@@ -383,16 +385,16 @@ const Card = () => {
           <div style={{ display: "flex" }}>
             <RiCalendarEventFill
               style={{ marginTop: "3px", width: "15px", height: "15px0" }}
-            />{" "}
-            &nbsp;{" "}
+            />
+            &nbsp;
             <p style={{ fontSize: "14px", color: "black" }}>
               Fri, 12 Oct, 2018
             </p>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <MdOutlineLocationOn
               style={{ marginTop: "2px", width: "20px", height: "15px0" }}
-            />{" "}
-            &nbsp;{" "}
+            />
+            &nbsp;
             <p style={{ fontSize: "14px", color: "black" }}>Ahmedabad, India</p>
            </div>
           <button
@@ -409,6 +411,8 @@ const Card = () => {
           <br />
           <br />
           <div style={{ display: "flex", justifyContent: "space-between" }}>
+
+          {/* Card 3 Profile Desktop View */}
             {breakpoints_desktop ? (
               <>
                 <div style={{ display: "flex" }}>
@@ -429,10 +433,8 @@ const Card = () => {
                   </h6>
                 </div>
                 <div style={{ display: "flex" }}>
-                  <img
-                    alt="views"
+                  <AiOutlineEye
                     style={{ width: "18px", height: "18px", marginTop: "10px" }}
-                    src="https://img.icons8.com/material-outlined/24/525252/visible--v1.png"
                   />
                   &nbsp;
                   <p
@@ -457,7 +459,8 @@ const Card = () => {
               </>
             ) : (
               <>
-                <div style={{ display: "flex" }}>
+              {/* Card 3 Profile Mobile View */}
+              <div style={{ display: "flex" }}>
                   <img
                     style={{ width: "40px", height: "40px" }}
                     src={User3}
@@ -568,7 +571,7 @@ const Card = () => {
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <MdOutlineLocationOn
               style={{ marginTop: "4px", width: "15px", height: "15px" }}
-            />{" "}
+            />
             &nbsp;
             <p style={{ fontSize: "14px", color: "black" }}>Noida, India</p>
             </div>
@@ -586,6 +589,8 @@ const Card = () => {
           <br />
           <br />
           <div style={{ display: "flex", justifyContent: "space-between" }}>
+
+          {/* Card 4 Profile Desktop View */}
             {breakpoints_desktop ? (
               <>
                 <div style={{ display: "flex" }}>
@@ -606,10 +611,8 @@ const Card = () => {
                   </h6>
                 </div>
                 <div style={{ display: "flex" }}>
-                  <img
-                    alt="views"
+                  <AiOutlineEye
                     style={{ width: "18px", height: "18px", marginTop: "10px" }}
-                    src="https://img.icons8.com/material-outlined/24/525252/visible--v1.png"
                   />
                   &nbsp;
                   <p
@@ -634,6 +637,7 @@ const Card = () => {
               </>
             ) : (
               <>
+              {/* Card 4 Profile Mobile View */}
                 <div style={{ display: "flex" }}>
                   <img
                     style={{ width: "40px", height: "40px" }}
