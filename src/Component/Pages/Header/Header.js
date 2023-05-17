@@ -2,6 +2,7 @@ import React from 'react'
 import Logo from '../../../Asset/images/Union 1.png'
 import './Header.css'
 import {FiSearch} from 'react-icons/fi'
+import Login from '../Signup/Login'
 
 const Header = () => {
 
@@ -30,7 +31,7 @@ const Header = () => {
 
         {/* Registration */}
         <div style={{marginRight: '3%', width: '200px', paddingTop: '15px', paddingBottom: '15px'}} class="btn-group">
-        <button data-bs-toggle="modal" data-bs-target="#createaccountmodal" class="btn btn-sm" type="button" style={{textAlign: 'right'}}>
+        <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-sm" type="button" style={{textAlign: 'right'}}>
             Create account.
             <span style={{color: 'blue'}}> It's free!</span>
         </button>
@@ -38,7 +39,9 @@ const Header = () => {
             <span class="visually-hidden">Toggle Dropdown</span>
         </button>
         </div>
-
+        
+        {/* Modal Signup */}
+        {/* <Login /> */}
     </div>
   )
 }

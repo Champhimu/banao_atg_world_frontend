@@ -17,7 +17,7 @@ const Card = () => {
   return (
     <div>
       {/* <div style={{marginLeft: '15%', display: 'flex', justifyContent: 'space-between'}}> */}
-        <div style={{width: '75%', height: '83vh', overflowY: 'scroll'}}>
+        <div style={{width: '70%', height: '83vh', overflowY: 'scroll'}}>
 
             {/* Card 1 */}
             <div className='card' style={{width:'100%'}}>

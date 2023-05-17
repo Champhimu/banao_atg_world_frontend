@@ -5,6 +5,8 @@ import InfoIcon from '../../../Asset/images/Vector (3).png'
 
 import {MdOutlineLocationOn, MdModeEdit, MdOutlineClose} from 'react-icons/md'
 import {BiInfoCircle} from 'react-icons/bi'
+import Login from '../Signup/Login'
+import Signup from '../Signup/Signup'
 
 const Article = () => {
 
@@ -73,6 +75,9 @@ const Article = () => {
                 </div>
     </div>
     </div>
+
+    {/* <Login /> */}
+    <Signup />
     </>
   )
 }
