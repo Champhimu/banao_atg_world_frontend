@@ -246,7 +246,7 @@ const Login = () => {
           />
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <button
-              onClick={() => isSignedIn(true)}
+              onClick={() => setIsSignedIn(true)}
               data-bs-dismiss="offcanvas"
               style={{
                 height: "45px",
@@ -276,7 +276,7 @@ const Login = () => {
           </div>
           <br />
           <button
-            onClick={() => isSignedIn(true)}
+            onClick={() => setIsSignedIn(true)}
             data-bs-dismiss="offcanvas"
             style={{
               height: "40px",
@@ -290,7 +290,7 @@ const Login = () => {
             <FaFacebook color="blue" fontSize={"1.2em"} /> Sign up with Facebook
           </button>
           <button
-            onClick={() => isSignedIn(true)}
+            onClick={() => setIsSignedIn(true)}
             data-bs-dismiss="offcanvas"
             style={{
               height: "40px",
