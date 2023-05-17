@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Logo from '../../../Asset/images/Union 1.png'
 import './Header.css'
 import {FiSearch} from 'react-icons/fi'
 import Login from '../Signup/Login'
+import { MyContext } from '../../../App'
+import User4 from '../../../Asset/images/Rectangle 3 (2).png'
 
 const Header = () => {
 
+    const {isSignedIn , setIsSignedIn} = useContext(MyContext);
+    // const {isSignedIn, setIsSignedIn} = useContext(MyContext);
+
     // const breakpoints_desktop = useMediaQuery({});
+
+    console.log(isSignedIn);
 
   return (
     <div className="topbar">
@@ -31,6 +38,17 @@ const Header = () => {
 
         {/* Registration */}
         <div style={{marginRight: '3%', width: '200px', paddingTop: '15px', paddingBottom: '15px'}} class="btn-group">
+        {isSignedIn ? <>
+            <button class="btn btn-sm" type="button" style={{textAlign: 'right'}}>
+                <div style={{display: 'flex'}}>
+                    <img style={{marginTop: '-4px', width: '40px', height: '40px'}} src={User4} alt='profile pic'/>&nbsp;&nbsp;<p style={{marginTop: '5px'}}>Siddharth Goyal</p>
+                </div>
+                </button>
+                <button disabled type="button" class="btn btn-sm dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+        </> : 
+        <>
         <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-sm" type="button" style={{textAlign: 'right'}}>
             Create account.
             <span style={{color: 'blue'}}> It's free!</span>
@@ -38,10 +56,11 @@ const Header = () => {
         <button disabled type="button" class="btn btn-sm dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
             <span class="visually-hidden">Toggle Dropdown</span>
         </button>
+        </>
+        }
+
         </div>
         
-        {/* Modal Signup */}
-        {/* <Login /> */}
     </div>
   )
 }

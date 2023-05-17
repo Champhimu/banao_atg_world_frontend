@@ -1,17 +1,19 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import {MdOutlineClose} from 'react-icons/md'
 import {FaFacebook} from 'react-icons/fa'
 import {FcGoogle} from 'react-icons/fc'
 import abstract from '../../../Asset/images/atg_illustration.png'
 import Login from './Login'
+import { MyContext } from '../../../App'
 
 const Signup = () => {
+
+    const {isSignedIn, setIsSignedIn} = useContext(MyContext);
+
+    console.log("Signup: "+isSignedIn);
+    
   return (
     <div>
-      {/* <!-- Button trigger modal --> */}
-{/* <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Launch static backdrop modal
-</button> */}
 
 {/* <!-- Modal --> */}
 <div class="modal fade" id="staticBackdrop" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -36,13 +38,13 @@ const Signup = () => {
                             <input style={{height: '45px', borderTop: 'none', borderRadius: '0px', backgroundColor: '#F7F8FA'}} type="text" class="form-control" placeholder="Email" aria-describedby="addon-wrapping" />
                             <input style={{height: '45px', borderTop: 'none', borderRadius: '0px', backgroundColor: '#F7F8FA'}} type="password" class="form-control" placeholder="Password" aria-describedby="addon-wrapping" />
                             <input style={{height: '45px', borderTop: 'none', borderRadius: '0px', backgroundColor: '#F7F8FA'}} type="password" class="form-control" placeholder="Confirm Password" aria-describedby="addon-wrapping" />
-                            <button data-bs-dismiss="modal" style={{height: '45px', marginTop: '15px', borderRadius: '25px', width: '100%'}} type="button" class="btn btn-primary">Create Account</button>
+                            <button onClick={() => setIsSignedIn(true)} data-bs-dismiss="modal" style={{height: '45px', marginTop: '15px', borderRadius: '25px', width: '100%'}} type="button" class="btn btn-primary">Create Account</button>
                             <br /><br />
-                            <button data-bs-dismiss="modal" style={{height: '40px', marginBottom: '5px', width: '100%', borderColor: '#D9D9DB'}} class="btn btn-sm" type="button">
+                            <button onClick={() => setIsSignedIn(true)} data-bs-dismiss="modal" style={{height: '40px', marginBottom: '5px', width: '100%', borderColor: '#D9D9DB'}} class="btn btn-sm" type="button">
                                 {/* <img alt='fb sign up' src={fblogo} /> */}
                                 <FaFacebook color='blue' fontSize={'1.2em'}/> Sign up with Facebook
                             </button>
-                            <button data-bs-dismiss="modal" style={{height: '40px', width: '100%', borderColor: '#D9D9DB'}} class="btn btn-sm" type="button">
+                            <button onClick={() => setIsSignedIn(true)} data-bs-dismiss="modal" style={{height: '40px', width: '100%', borderColor: '#D9D9DB'}} class="btn btn-sm" type="button">
                                 {/* <img alt='google sign up' src={glogo} /> */}
                                 <FcGoogle fontSize={'1.2em'} /> Sign up with Google
                             </button>
