@@ -7,7 +7,7 @@ import Login from "./Login";
 import { MyContext } from "../../../App";
 
 const Signup = () => {
-  const { isSignedIn, setIsSignedIn } = useContext(MyContext);
+  const { setIsSignedIn } = useContext(MyContext);
 
   // console.log("Signup: " + isSignedIn);
 
