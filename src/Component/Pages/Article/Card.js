@@ -82,7 +82,7 @@ const Card = () => {
             }}
           >
             I’ve worked in UX for the better part of a decade. From now on, I
-            plan to reidf bsgakksa shly akssdjj shadkj
+            plan to releif the world
           </h6>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             {breakpoints_desktop ? (
@@ -101,7 +101,7 @@ const Card = () => {
                       marginTop: "10px",
                     }}
                   >
-                    Sarah West
+                    Sarthak Kamra
                   </h6>
                 </div>
                 <div style={{ display: "flex" }}>
@@ -236,7 +236,7 @@ const Card = () => {
             }}
           >
             I’ve worked in UX for the better part of a decade. From now on, I
-            plan to reidf bsgakksa shly akssdjj shadkj
+            plan to releif the world.
           </h6>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             {breakpoints_desktop ? (
@@ -255,7 +255,7 @@ const Card = () => {
                       marginTop: "10px",
                     }}
                   >
-                    Sarthak Kamra
+                    Sarah West
                   </h6>
                 </div>
                 <div style={{ display: "flex" }}>
@@ -673,6 +673,8 @@ const Card = () => {
         </div>
       </div>
 
+      <br />
+      <br />
       <br />
     </div>
   );
