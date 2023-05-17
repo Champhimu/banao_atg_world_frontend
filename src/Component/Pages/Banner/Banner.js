@@ -101,7 +101,7 @@ const Banner = () => {
                 right: "0",
                 marginRight: "3.75%",
               }}
-              class="btn btn-sm"
+              className="btn btn-sm"
               type="button"
             >
               Leave Group
@@ -120,7 +120,7 @@ const Banner = () => {
               data-bs-toggle="offcanvas"
               data-bs-target="#createaccountcanvas"
               aria-controls="offcanvasBottom"
-              class="btn btn-sm"
+              className="btn btn-sm"
               type="button"
             >
               Join Group

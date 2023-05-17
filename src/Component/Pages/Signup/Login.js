@@ -11,9 +11,9 @@ const Login = () => {
   return (
     <>
       <div
-        class="modal fade"
+        className="modal fade"
         id="signupmodal"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
@@ -34,10 +34,10 @@ const Login = () => {
         >
           <MdOutlineClose fontSize={"1.5em"} style={{}} />
         </button>
-        <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div className="modal-dialog modal-lg modal-dialog-centered">
           <div
             style={{ borderRadius: "8px", border: "none" }}
-            class="modal-content"
+            className="modal-content"
           >
             <div
               style={{
@@ -48,18 +48,18 @@ const Login = () => {
                 color: "#008A45",
                 fontSize: "15px",
               }}
-              class="modal-header"
+              className="modal-header"
             >
-              <h7
+              <h6
                 style={{ margin: "0 auto" }}
-                class="modal-title"
+                className="modal-title"
                 id="exampleModalLabel"
               >
                 Let's learn, share & inspire each other with our passion for
                 computer engineering. Sign up now 🤘🏼
-              </h7>
+              </h6>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <div
                 style={{
                   marginLeft: "10px",
@@ -99,7 +99,7 @@ const Login = () => {
                       backgroundColor: "#F7F8FA",
                     }}
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     placeholder="Email"
                     aria-describedby="addon-wrapping"
                   />
@@ -111,7 +111,7 @@ const Login = () => {
                       backgroundColor: "#F7F8FA",
                     }}
                     type="password"
-                    class="form-control"
+                    className="form-control"
                     placeholder="Password"
                     aria-describedby="addon-wrapping"
                   />
@@ -125,7 +125,7 @@ const Login = () => {
                       width: "100%",
                     }}
                     type="button"
-                    class="btn btn-primary"
+                    className="btn btn-primary"
                   >
                     Sign In
                   </button>
@@ -140,7 +140,7 @@ const Login = () => {
                       width: "100%",
                       borderColor: "#D9D9DB",
                     }}
-                    class="btn btn-sm"
+                    className="btn btn-sm"
                     type="button"
                   >
                     <FaFacebook color="blue" fontSize={"1.2em"} /> Sign up with
@@ -154,7 +154,7 @@ const Login = () => {
                       width: "100%",
                       borderColor: "#D9D9DB",
                     }}
-                    class="btn btn-sm"
+                    className="btn btn-sm"
                     type="button"
                   >
                     <FcGoogle fontSize={"1.2em"} /> Sign up with Google
@@ -186,12 +186,12 @@ const Login = () => {
 
       <div
         style={{ borderRadius: "8px 8px 0px 0px", height: "500px" }}
-        class="offcanvas offcanvas-bottom"
-        tabindex="-1"
+        className="offcanvas offcanvas-bottom"
+        tabIndex="-1"
         id="signupcanvas"
         aria-labelledby="offcanvasBottomLabel"
       >
-        <div class="offcanvas-header">
+        <div className="offcanvas-header">
           <h3
             style={{
               fontWeight: "700",
@@ -204,7 +204,7 @@ const Login = () => {
           <button
             style={{ marginBottom: "-5px" }}
             type="button"
-            class="btn text-reset"
+            className="btn text-reset"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
           >
@@ -218,7 +218,7 @@ const Login = () => {
             />
           </button>
         </div>
-        <div class="offcanvas-body">
+        <div className="offcanvas-body">
           <input
             style={{
               height: "45px",
@@ -226,7 +226,7 @@ const Login = () => {
               backgroundColor: "#F7F8FA",
             }}
             type="text"
-            class="form-control"
+            className="form-control"
             placeholder="Email"
             aria-describedby="addon-wrapping"
           />
@@ -238,7 +238,7 @@ const Login = () => {
               backgroundColor: "#F7F8FA",
             }}
             type="password"
-            class="form-control"
+            className="form-control"
             placeholder="Password"
             aria-describedby="addon-wrapping"
           />
@@ -253,7 +253,7 @@ const Login = () => {
                 width: "100%",
               }}
               type="button"
-              class="btn btn-primary w-50"
+              className="btn btn-primary w-50"
             >
               Sign In
             </button>
@@ -282,7 +282,7 @@ const Login = () => {
               width: "100%",
               borderColor: "#D9D9DB",
             }}
-            class="btn btn-sm"
+            className="btn btn-sm"
             type="button"
           >
             <FaFacebook color="blue" fontSize={"1.2em"} /> Sign up with Facebook
@@ -296,7 +296,7 @@ const Login = () => {
               width: "100%",
               borderColor: "#D9D9DB",
             }}
-            class="btn btn-sm"
+            className="btn btn-sm"
             type="button"
           >
             <FcGoogle fontSize={"1.2em"} /> Sign up with Google

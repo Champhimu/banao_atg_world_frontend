@@ -9,16 +9,16 @@ import { MyContext } from "../../../App";
 const Signup = () => {
   const { isSignedIn, setIsSignedIn } = useContext(MyContext);
 
-  console.log("Signup: " + isSignedIn);
+  // console.log("Signup: " + isSignedIn);
 
   return (
     <>
       <div>
         {/* <!-- Modal --> */}
         <div
-          class="modal fade"
+          className="modal fade"
           id="staticBackdrop"
-          tabindex="-1"
+          tabIndex="-1"
           aria-labelledby="staticBackdropLabel"
           aria-hidden="true"
         >
@@ -39,10 +39,10 @@ const Signup = () => {
           >
             <MdOutlineClose fontSize={"1.5em"} style={{}} />
           </button>
-          <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div className="modal-dialog modal-lg modal-dialog-centered">
             <div
               style={{ borderRadius: "8px", border: "none" }}
-              class="modal-content"
+              className="modal-content"
             >
               <div
                 style={{
@@ -53,18 +53,18 @@ const Signup = () => {
                   color: "#008A45",
                   fontSize: "15px",
                 }}
-                class="modal-header"
+                className="modal-header"
               >
-                <h7
+                <h6
                   style={{ margin: "0 auto" }}
-                  class="modal-title"
+                  className="modal-title"
                   id="exampleModalLabel"
                 >
                   Let's learn, share & inspire each other with our passion for
                   computer engineering. Sign up now 🤘🏼
-                </h7>
+                </h6>
               </div>
-              <div class="modal-body">
+              <div className="modal-body">
                 <div
                   style={{
                     marginLeft: "10px",
@@ -106,7 +106,7 @@ const Signup = () => {
                           backgroundColor: "#F7F8FA",
                         }}
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         placeholder="First Name"
                         aria-describedby="addon-wrapping"
                       />
@@ -117,7 +117,7 @@ const Signup = () => {
                           backgroundColor: "#F7F8FA",
                         }}
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         placeholder="Last Name"
                         aria-describedby="addon-wrapping"
                       />
@@ -130,7 +130,7 @@ const Signup = () => {
                         backgroundColor: "#F7F8FA",
                       }}
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       placeholder="Email"
                       aria-describedby="addon-wrapping"
                     />
@@ -142,7 +142,7 @@ const Signup = () => {
                         backgroundColor: "#F7F8FA",
                       }}
                       type="password"
-                      class="form-control"
+                      className="form-control"
                       placeholder="Password"
                       aria-describedby="addon-wrapping"
                     />
@@ -154,7 +154,7 @@ const Signup = () => {
                         backgroundColor: "#F7F8FA",
                       }}
                       type="password"
-                      class="form-control"
+                      className="form-control"
                       placeholder="Confirm Password"
                       aria-describedby="addon-wrapping"
                     />
@@ -168,7 +168,7 @@ const Signup = () => {
                         width: "100%",
                       }}
                       type="button"
-                      class="btn btn-primary"
+                      className="btn btn-primary"
                     >
                       Create Account
                     </button>
@@ -183,7 +183,7 @@ const Signup = () => {
                         width: "100%",
                         borderColor: "#D9D9DB",
                       }}
-                      class="btn btn-sm"
+                      className="btn btn-sm"
                       type="button"
                     >
                       <FaFacebook color="blue" fontSize={"1.2em"} /> Sign up
@@ -197,7 +197,7 @@ const Signup = () => {
                         width: "100%",
                         borderColor: "#D9D9DB",
                       }}
-                      class="btn btn-sm"
+                      className="btn btn-sm"
                       type="button"
                     >
                       <FcGoogle fontSize={"1.2em"} /> Sign up with Google
@@ -229,12 +229,12 @@ const Signup = () => {
       </div>
       <div
         style={{ borderRadius: "8px 8px 0px 0px", height: "500px" }}
-        class="offcanvas offcanvas-bottom"
-        tabindex="-1"
+        className="offcanvas offcanvas-bottom"
+        tabIndex="-1"
         id="createaccountcanvas"
         aria-labelledby="offcanvasBottomLabel"
       >
-        <div class="offcanvas-header">
+        <div className="offcanvas-header">
           <h3
             style={{
               fontWeight: "700",
@@ -247,7 +247,7 @@ const Signup = () => {
           <button
             style={{ marginBottom: "-5px" }}
             type="button"
-            class="btn text-reset"
+            className="btn text-reset"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
           >
@@ -261,7 +261,7 @@ const Signup = () => {
             />
           </button>
         </div>
-        <div class="offcanvas-body">
+        <div className="offcanvas-body">
           <div style={{ display: "flex" }}>
             <input
               style={{
@@ -271,7 +271,7 @@ const Signup = () => {
                 backgroundColor: "#F7F8FA",
               }}
               type="text"
-              class="form-control"
+              className="form-control"
               placeholder="First Name"
               aria-describedby="addon-wrapping"
             />
@@ -282,7 +282,7 @@ const Signup = () => {
                 backgroundColor: "#F7F8FA",
               }}
               type="text"
-              class="form-control"
+              className="form-control"
               placeholder="Last Name"
               aria-describedby="addon-wrapping"
             />
@@ -295,7 +295,7 @@ const Signup = () => {
               backgroundColor: "#F7F8FA",
             }}
             type="text"
-            class="form-control"
+            className="form-control"
             placeholder="Email"
             aria-describedby="addon-wrapping"
           />
@@ -307,7 +307,7 @@ const Signup = () => {
               backgroundColor: "#F7F8FA",
             }}
             type="password"
-            class="form-control"
+            className="form-control"
             placeholder="Password"
             aria-describedby="addon-wrapping"
           />
@@ -319,7 +319,7 @@ const Signup = () => {
               backgroundColor: "#F7F8FA",
             }}
             type="password"
-            class="form-control"
+            className="form-control"
             placeholder="Confirm Password"
             aria-describedby="addon-wrapping"
           />
@@ -334,7 +334,7 @@ const Signup = () => {
                 width: "100%",
               }}
               type="button"
-              class="btn btn-primary w-50"
+              className="btn btn-primary w-50"
             >
               Create Account
             </button>
@@ -363,7 +363,7 @@ const Signup = () => {
               width: "100%",
               borderColor: "#D9D9DB",
             }}
-            class="btn btn-sm"
+            className="btn btn-sm"
             type="button"
           >
             <FaFacebook color="blue" fontSize={"1.2em"} /> Sign up with Facebook
@@ -377,7 +377,7 @@ const Signup = () => {
               width: "100%",
               borderColor: "#D9D9DB",
             }}
-            class="btn btn-sm"
+            className="btn btn-sm"
             type="button"
           >
             <FcGoogle fontSize={"1.2em"} /> Sign up with Google

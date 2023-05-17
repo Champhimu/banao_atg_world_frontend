@@ -63,32 +63,32 @@ const Article = () => {
             <div style={{ display: "flex", flexDirection: "row" }}>
               <a
                 style={{ color: "black" }}
-                class="nav-link active"
+                className="nav-link active"
                 aria-current="page"
                 href=" "
               >
                 All Posts(32)
               </a>
-              <a style={{ color: "#8A8A8A" }} class="nav-link" href=" ">
+              <a style={{ color: "#8A8A8A" }} className="nav-link" href=" ">
                 Article
               </a>
-              <a style={{ color: "#8A8A8A" }} class="nav-link" href=" ">
+              <a style={{ color: "#8A8A8A" }} className="nav-link" href=" ">
                 Event
               </a>
-              <a style={{ color: "#8A8A8A" }} class="nav-link" href=" ">
+              <a style={{ color: "#8A8A8A" }} className="nav-link" href=" ">
                 Education
               </a>
-              <a style={{ color: "#8A8A8A" }} class="nav-link" href=" ">
+              <a style={{ color: "#8A8A8A" }} className="nav-link" href=" ">
                 Job
               </a>
             </div>
             <div style={{ display: "flex", flexDirection: "row" }}>
               <div
                 style={{ marginRight: "3%", width: "133px" }}
-                class="btn-group"
+                className="btn-group"
               >
                 <button
-                  class="btn btn-sm"
+                  className="btn btn-sm"
                   style={{ backgroundColor: "#EDEEF0" }}
                   type="button"
                 >
@@ -97,7 +97,7 @@ const Article = () => {
                 <button
                   type="button"
                   style={{ borderColor: "#EDEEF0", backgroundColor: "#EDEEF0" }}
-                  class="btn btn-light btn-sm dropdown-toggle dropdown-toggle-split"
+                  className="btn btn-light btn-sm dropdown-toggle dropdown-toggle-split"
                 ></button>
               </div>
 
@@ -110,7 +110,7 @@ const Article = () => {
                       color: "#6A6A6B",
                       borderColor: "#6A6A6B",
                     }}
-                    class="btn btn-sm"
+                    className="btn btn-sm"
                     type="button"
                   >
                     <span>
@@ -126,7 +126,7 @@ const Article = () => {
                     style={{ width: "134px" }}
                     data-bs-toggle="modal"
                     data-bs-target="#staticBackdrop"
-                    class="btn btn-sm btn-primary"
+                    className="btn btn-sm btn-primary"
                     type="button"
                   >
                     <span>
@@ -152,7 +152,7 @@ const Article = () => {
                   backgroundColor: "#F1F3F5",
                   color: "black",
                 }}
-                class="btn dropdown-toggle"
+                className="btn dropdown-toggle"
                 type="button"
               >
                 Filter: All
@@ -190,7 +190,7 @@ const Article = () => {
           <div
             style={{ marginRight: "17.5%", width: "243px", marginTop: "12px" }}
           >
-            <div class="input-group flex-nowrap">
+            <div className="input-group flex-nowrap">
               <span
                 style={{
                   paddingLeft: "0px",
@@ -202,7 +202,7 @@ const Article = () => {
                   borderBottomLeftRadius: "0px",
                   background: "white",
                 }}
-                class="input-group-text"
+                className="input-group-text"
                 id="addon-wrapping"
               >
                 <MdOutlineLocationOn />
@@ -218,7 +218,7 @@ const Article = () => {
                   color: "black",
                 }}
                 type="text"
-                class="form-control"
+                className="form-control"
                 placeholder="Enter your location"
                 value={location_update}
                 onChange={(e) => {
@@ -237,7 +237,7 @@ const Article = () => {
                       borderBottomRightRadius: "0px",
                       background: "white",
                     }}
-                    class="input-group-text"
+                    className="input-group-text"
                     id="addon-wrapping"
                     label="Enter location"
                   >
@@ -245,7 +245,7 @@ const Article = () => {
                       onClick={() => setLocation_edit_enabled(false)}
                       style={{ marginRight: "-15px" }}
                       type="button"
-                      class="btn"
+                      className="btn"
                     >
                       <MdOutlineClose />
                     </button>
@@ -262,14 +262,14 @@ const Article = () => {
                       borderBottomRightRadius: "0px",
                       background: "white",
                     }}
-                    class="input-group-text"
+                    className="input-group-text"
                     id="addon-wrapping"
                   >
                     <button
                       onClick={() => setLocation_edit_enabled(true)}
                       style={{ marginRight: "-15px" }}
                       type="button"
-                      class="btn"
+                      className="btn"
                     >
                       <MdModeEdit />
                     </button>
@@ -341,7 +341,7 @@ const Article = () => {
                         marginTop: "6px",
                         paddingTop: "2px",
                       }}
-                      class="btn"
+                      className="btn"
                     >
                       {group[2] ? "Followed" : "Follow"}
                     </button>

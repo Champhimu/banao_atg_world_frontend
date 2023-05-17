@@ -31,19 +31,19 @@ const Card = () => {
         }}
       >
         <img src={card1} className="card-img-top" alt="Card 1" />
-        <div class="card-body">
-          <h6 style={{ fontWeight: "540" }} class="card-title">
+        <div className="card-body">
+          <h6 style={{ fontWeight: "540" }} className="card-title">
             &#9997; Article
           </h6>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <p style={{ fontWeight: "700", width: "90%" }} class="card-text">
+            <p style={{ fontWeight: "700", width: "90%" }} className="card-text">
               What if famous brands had regular fonts? Meet RegulaBrands!
             </p>
-            <div class="btn-group">
+            <div className="btn-group">
               <button
                 style={{ height: "25px", width: "25px" }}
                 type="button"
-                class="btn"
+                className="btn"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
@@ -53,19 +53,19 @@ const Card = () => {
                   src={menuicon}
                 />
               </button>
-              <ul class="dropdown-menu dropdown-menu-end">
+              <ul className="dropdown-menu dropdown-menu-end">
                 <li>
-                  <button class="dropdown-item" type="button">
+                  <button className="dropdown-item" type="button">
                     Edit
                   </button>
                 </li>
                 <li>
-                  <button class="dropdown-item" type="button">
+                  <button className="dropdown-item" type="button">
                     Report
                   </button>
                 </li>
                 <li>
-                  <button class="dropdown-item" type="button">
+                  <button className="dropdown-item" type="button">
                     Option 3
                   </button>
                 </li>
@@ -123,7 +123,7 @@ const Card = () => {
                   </p>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <button
-                    class="btn"
+                    className="btn"
                     style={{ backgroundColor: "#EDEEF0" }}
                     type="button"
                   >
@@ -158,7 +158,7 @@ const Card = () => {
                 </div>
                 <div style={{ display: "flex" }}>
                   <button
-                    class="btn"
+                    className="btn"
                     style={{ backgroundColor: "#EDEEF0" }}
                     type="button"
                   >
@@ -184,20 +184,20 @@ const Card = () => {
         }}
       >
         <img src={card2} className="card-img-top" alt="Card 2" />
-        <div class="card-body">
-          <h6 style={{ fontWeight: "540" }} class="card-title">
+        <div className="card-body">
+          <h6 style={{ fontWeight: "540" }} className="card-title">
             &#128300; Education
           </h6>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <p style={{ fontWeight: "700", width: "90%" }} class="card-text">
+            <p style={{ fontWeight: "700", width: "90%" }} className="card-text">
               Tax Benefits for Investment under National Pension Scheme launched
               by Government
             </p>
-            <div class="btn-group">
+            <div className="btn-group">
               <button
                 style={{ height: "25px", width: "25px" }}
                 type="button"
-                class="btn"
+                className="btn"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
@@ -207,19 +207,19 @@ const Card = () => {
                   src={menuicon}
                 />
               </button>
-              <ul class="dropdown-menu dropdown-menu-end">
+              <ul className="dropdown-menu dropdown-menu-end">
                 <li>
-                  <button class="dropdown-item" type="button">
+                  <button className="dropdown-item" type="button">
                     Edit
                   </button>
                 </li>
                 <li>
-                  <button class="dropdown-item" type="button">
+                  <button className="dropdown-item" type="button">
                     Report
                   </button>
                 </li>
                 <li>
-                  <button class="dropdown-item" type="button">
+                  <button className="dropdown-item" type="button">
                     Option 3
                   </button>
                 </li>
@@ -277,7 +277,7 @@ const Card = () => {
                   </p>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <button
-                    class="btn"
+                    className="btn"
                     style={{ backgroundColor: "#EDEEF0" }}
                     type="button"
                   >
@@ -312,7 +312,7 @@ const Card = () => {
                 </div>
                 <div style={{ display: "flex" }}>
                   <button
-                    class="btn"
+                    className="btn"
                     style={{ backgroundColor: "#EDEEF0" }}
                     type="button"
                   >
@@ -329,7 +329,7 @@ const Card = () => {
 
       {/* Card 3 */}
       <div
-        class="card"
+        className="card"
         style={{
           width: "100%",
           boxShadow: breakpoints_desktop
@@ -338,20 +338,20 @@ const Card = () => {
           border: breakpoints_desktop ? "" : "none",
         }}
       >
-        <img src={card3} class="card-img-top" alt="Third Pic" />
-        <div class="card-body">
-          <h6 style={{ fontWeight: "540" }} class="card-title">
+        <img src={card3} className="card-img-top" alt="Third Pic" />
+        <div className="card-body">
+          <h6 style={{ fontWeight: "540" }} className="card-title">
             &#128197; Meetup
           </h6>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <p style={{ fontWeight: "700", width: "90%" }} class="card-text">
+            <p style={{ fontWeight: "700", width: "90%" }} className="card-text">
               Finance & Investment Elite Social Mixer @Lujiazui
             </p>
-            <div class="btn-group">
+            <div className="btn-group">
               <button
                 style={{ height: "25px", width: "25px" }}
                 type="button"
-                class="btn"
+                className="btn"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
@@ -361,19 +361,19 @@ const Card = () => {
                   src={menuicon}
                 />
               </button>
-              <ul class="dropdown-menu dropdown-menu-end">
+              <ul className="dropdown-menu dropdown-menu-end">
                 <li>
-                  <button class="dropdown-item" type="button">
+                  <button className="dropdown-item" type="button">
                     Edit
                   </button>
                 </li>
                 <li>
-                  <button class="dropdown-item" type="button">
+                  <button className="dropdown-item" type="button">
                     Report
                   </button>
                 </li>
                 <li>
-                  <button class="dropdown-item" type="button">
+                  <button className="dropdown-item" type="button">
                     Option 3
                   </button>
                 </li>
@@ -402,7 +402,7 @@ const Card = () => {
               borderColor: "#A9AEB8",
             }}
             type="button"
-            class="btn w-100"
+            className="btn w-100"
           >
             Visit Website
           </button>
@@ -447,7 +447,7 @@ const Card = () => {
                   </p>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <button
-                    class="btn"
+                    className="btn"
                     style={{ backgroundColor: "#EDEEF0" }}
                     type="button"
                   >
@@ -482,7 +482,7 @@ const Card = () => {
                 </div>
                 <div style={{ display: "flex" }}>
                   <button
-                    class="btn"
+                    className="btn"
                     style={{ backgroundColor: "#EDEEF0" }}
                     type="button"
                   >
@@ -499,7 +499,7 @@ const Card = () => {
 
       {/* Card4 */}
       <div
-        class="card"
+        className="card"
         style={{
           width: "100%",
           boxShadow: breakpoints_desktop
@@ -508,19 +508,19 @@ const Card = () => {
           border: breakpoints_desktop ? "" : "none",
         }}
       >
-        <div class="card-body">
-          <h6 style={{ fontWeight: "540" }} class="card-title">
+        <div className="card-body">
+          <h6 style={{ fontWeight: "540" }} className="card-title">
             &#128188; Job
           </h6>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <p style={{ fontWeight: "700", width: "90%" }} class="card-text">
+            <p style={{ fontWeight: "700", width: "90%" }} className="card-text">
               Software Developer
             </p>
-            <div class="btn-group">
+            <div className="btn-group">
               <button
                 style={{ height: "25px", width: "25px" }}
                 type="button"
-                class="btn"
+                className="btn"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
@@ -530,19 +530,19 @@ const Card = () => {
                   src={menuicon}
                 />
               </button>
-              <ul class="dropdown-menu dropdown-menu-end">
+              <ul className="dropdown-menu dropdown-menu-end">
                 <li>
-                  <button class="dropdown-item" type="button">
+                  <button className="dropdown-item" type="button">
                     Edit
                   </button>
                 </li>
                 <li>
-                  <button class="dropdown-item" type="button">
+                  <button className="dropdown-item" type="button">
                     Report
                   </button>
                 </li>
                 <li>
-                  <button class="dropdown-item" type="button">
+                  <button className="dropdown-item" type="button">
                     Option 3
                   </button>
                 </li>
@@ -579,7 +579,7 @@ const Card = () => {
               borderColor: "#A9AEB8",
             }}
             type="button"
-            class="btn w-100"
+            className="btn w-100"
           >
             Apply on Timesjobs
           </button>
@@ -624,7 +624,7 @@ const Card = () => {
                   </p>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <button
-                    class="btn"
+                    className="btn"
                     style={{ backgroundColor: "#EDEEF0" }}
                     type="button"
                   >
@@ -659,7 +659,7 @@ const Card = () => {
                 </div>
                 <div style={{ display: "flex" }}>
                   <button
-                    class="btn"
+                    className="btn"
                     style={{ backgroundColor: "#EDEEF0" }}
                     type="button"
                   >

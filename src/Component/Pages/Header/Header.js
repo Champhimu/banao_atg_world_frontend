@@ -23,7 +23,7 @@ const Header = () => {
         {/* Search Bar */}
         <div
           style={{ width: "360px", paddingTop: "15px", paddingBottom: "15px" }}
-          class="input-group flex-nowrap"
+          className="input-group flex-nowrap"
         >
           <span
             style={{
@@ -32,7 +32,7 @@ const Header = () => {
               backgroundColor: "#F2F2F2",
               border: "none",
             }}
-            class="input-group-text"
+            className="input-group-text"
             id="addon-wrapping"
           >
             <FiSearch />
@@ -46,7 +46,7 @@ const Header = () => {
               border: "none",
             }}
             type="text"
-            class="form-control"
+            className="form-control"
             placeholder="Search for your favourite groups in ATG"
             aria-describedby="addon-wrapping"
           />
@@ -60,12 +60,12 @@ const Header = () => {
             paddingTop: "15px",
             paddingBottom: "15px",
           }}
-          class="btn-group"
+          className="btn-group"
         >
           {isSignedIn ? (
             <>
               <button
-                class="btn btn-sm"
+                className="btn btn-sm"
                 type="button"
                 style={{ textAlign: "right" }}
               >
@@ -82,11 +82,11 @@ const Header = () => {
               <button
                 disabled
                 type="button"
-                class="btn btn-sm dropdown-toggle dropdown-toggle-split"
+                className="btn btn-sm dropdown-toggle dropdown-toggle-split"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                <span class="visually-hidden">Toggle Dropdown</span>
+                <span className="visually-hidden">Toggle Dropdown</span>
               </button>
             </>
           ) : (
@@ -94,7 +94,7 @@ const Header = () => {
               <button
                 data-bs-toggle="modal"
                 data-bs-target="#staticBackdrop"
-                class="btn btn-sm"
+                className="btn btn-sm"
                 type="button"
                 style={{ textAlign: "right" }}
               >
@@ -104,11 +104,11 @@ const Header = () => {
               <button
                 disabled
                 type="button"
-                class="btn btn-sm dropdown-toggle dropdown-toggle-split"
+                className="btn btn-sm dropdown-toggle dropdown-toggle-split"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                <span class="visually-hidden">Toggle Dropdown</span>
+                <span className="visually-hidden">Toggle Dropdown</span>
               </button>
             </>
           )}
