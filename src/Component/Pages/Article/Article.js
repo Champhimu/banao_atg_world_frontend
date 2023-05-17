@@ -13,6 +13,8 @@ import FollowUser2 from '../../../Asset/images/Rectangle 6 (1).png'
 import FollowUser3 from '../../../Asset/images/Rectangle 6 (2).png'
 import FollowUser4 from '../../../Asset/images/Rectangle 6 (3).png'
 
+import { useMediaQuery } from 'react-responsive'
+import float from '../../../Asset/images/float.png'
 import likeicon from '../../../Asset/images/Vector (4).png'
 const Article = () => {
 
@@ -22,21 +24,23 @@ const Article = () => {
     const [follow_groups, setFollow_groups] = useState([[FollowUser1, 'Leisure', false], [FollowUser2, 'Activism', false], [FollowUser3, 'MBA', false], [FollowUser4, 'Philosophy', false]])
 
     const Updating_follow_grp = (clicked_group) => {
-      follow_groups.map((group, index) => {(group[1] === clicked_group) && (follow_groups[index][2] = !group[2])})
+      follow_groups.map((group, index) => ((group[1] === clicked_group) && (follow_groups[index][2] = !group[2])))
       setFollow_groups([...follow_groups])
-    }
+    } // eslint-disable-next-line
+      
+    const breakpoints_desktop = useMediaQuery({query: '(min-width: 790px)'})
 
   return (
     <>
     {/* Article Nav */}
-    <div style={{marginTop: '20px', marginLeft: '15%', marginRight: '15%'}}>
-      <nav style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'row'}} class="nav">
+    <div style={{marginTop: '20px', marginLeft: (breakpoints_desktop ? '10%': ''), marginRight: '15%'}}>
+    {breakpoints_desktop ? <nav style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'row'}} className="nav">
             <div style={{display: 'flex', flexDirection: 'row'}}>
-            <a style={{color: 'black'}}class="nav-link active" aria-current="page" href="#">All Posts(32)</a>
-            <a style={{color: '#8A8A8A'}} class="nav-link" href="#">Article</a>
-            <a style={{color: '#8A8A8A'}} class="nav-link" href="#">Event</a>
-            <a style={{color: '#8A8A8A'}} class="nav-link" href="#">Education</a>
-            <a style={{color: '#8A8A8A'}} class="nav-link" href="#">Job</a>
+            <a style={{color: 'black'}}class="nav-link active" aria-current="page" href=" ">All Posts(32)</a>
+            <a style={{color: '#8A8A8A'}} class="nav-link" href=" ">Article</a>
+            <a style={{color: '#8A8A8A'}} class="nav-link" href=" ">Event</a>
+            <a style={{color: '#8A8A8A'}} class="nav-link" href=" ">Education</a>
+            <a style={{color: '#8A8A8A'}} class="nav-link" href=" ">Job</a>
             </div><div style={{display: 'flex', flexDirection: 'row'}}>
             <div style={{marginRight: '3%', width: '133px'}} class="btn-group">
                 <button class="btn btn-sm" style={{backgroundColor: '#EDEEF0'}} type="button">
@@ -58,20 +62,31 @@ const Article = () => {
                 </>
                 }
                 </div>
-                </nav>
+                </nav> :
+
+                <>
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                    <p style={{fontWeight: '600', marginLeft: '3.75%'}}>Posts(368)</p>
+                    <button style={{marginBottom: '10px', marginTop: '-10px', marginRight: '3.75%', backgroundColor: '#F1F3F5', color: 'black'}} class="btn dropdown-toggle" type="button">
+                        Filter: All
+                    </button>
+                </div>
+                </>}
     </div>
 
     {/* Divider */}
-    <hr style={{width: '70%' , margin: 'auto', marginTop: '12px'}} />
+    {breakpoints_desktop && <hr style={{width: '70%' , margin: 'auto', marginTop: '12px'}} /> }
 
     {/* Article-Left */}
     &nbsp;
-    <div style={{marginLeft: '15%', display: 'flex', justifyContent: 'space-between'}}>
+    <div style={{marginLeft: (breakpoints_desktop ? '15%' : '0%' ), display: 'flex', justifyContent: 'space-between'}}>
+    <div style={{width: (breakpoints_desktop ? '50%' : "100%"), overflowY: 'scroll', height:(breakpoints_desktop ? '83vh' : '94vh'), border: (breakpoints_desktop ? "": "none")}}>
     <Card />
+    </div>
 
     {/* Article-Right */}
     {/* &nbsp; */}
-    <div style={{marginRight: '17.5%', width: '243px', marginTop: '12px'}}>
+    { breakpoints_desktop && <div style={{marginRight: '17.5%', width: '243px', marginTop: '12px'}}>
     <div class="input-group flex-nowrap">
             <span style={{paddingLeft: '0px', paddingRight: '1px', borderTop: 'none', borderLeft: 'none', borderRight: 'none', borderColor: '#B8B8B8', borderBottomLeftRadius: '0px', background: 'white'}} class="input-group-text" id="addon-wrapping"><MdOutlineLocationOn /></span>
             <input disabled={!location_edit_enabled} style={{background: 'white', borderTop: 'none', borderLeft: 'none', borderRight: 'none', borderColor: '#B8B8B8', color: 'black'}} type="text" class="form-control" placeholder="Enter your location" value={location_update} onChange={(e) => {setLocation_update(e.target.value)}} aria-describedby="addon-wrapping" />
@@ -98,7 +113,7 @@ const Article = () => {
                 <div style={{display: (!isSignedIn && 'none')}}>
                 <br />
                 <br />
-                <h6><img style={{marginTop: '-5px'}} src={likeicon}/> RECOMMENDED GROUPS</h6>
+                <h6><img style={{marginTop: '-5px'}} src={likeicon} alt='likeIcon'/> RECOMMENDED GROUPS</h6>
                 {follow_groups.map((group) => <>
                     <br />
                     <div style={{display: 'flex', justifyContent: 'space-between'}}>
@@ -111,11 +126,15 @@ const Article = () => {
                 <br /><br /><br />
                 <p style={{color: '#2F6CE5', fontSize: '13px', textAlign: 'right'}}>See More...</p>
                 </div>
-    </div>
+    </div>}
     </div>
 
     {/* <Login /> */}
     <Signup />
+
+    {/* Float icon */}
+    {!breakpoints_desktop && <a href=' ' style={{position: 'fixed', right: '10px', bottom: '10px'}}><img style={{cursor: 'pointer'}} alt='float' src={float} /></a>}
+
     </>
   )
 }

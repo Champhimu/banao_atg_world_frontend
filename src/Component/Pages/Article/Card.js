@@ -12,16 +12,18 @@ import {BsFillShareFill} from 'react-icons/bs'
 import {RiCalendarEventFill} from 'react-icons/ri'
 import {MdOutlineLocationOn} from 'react-icons/md'
 import {BsBag} from 'react-icons/bs'
+import { useMediaQuery } from 'react-responsive'
 
 const Card = () => {
+    const breakpoints_desktop = useMediaQuery({query: "(min-width: 790px)"})
   return (
     <div>
       {/* <div style={{marginLeft: '15%', display: 'flex', justifyContent: 'space-between'}}> */}
-        <div style={{width: '70%', height: '83vh', overflowY: 'scroll'}}>
+        {/* <div style={{width: '70%', height: '83vh', overflowY: 'scroll'}}> */}
 
             {/* Card 1 */}
-            <div className='card' style={{width:'100%'}}>
-                <img src={card1} className='card-img-top' alt="Card 1 Image" />
+            <div className='card' style={{width:'100%' , boxShadow: (breakpoints_desktop ? '' : '0px 1px 2px rgba(0, 0, 0, 0.12)'), border: (breakpoints_desktop ? '' : 'none')}}>
+                <img src={card1} className='card-img-top' alt="Card 1" />
                 <div class="card-body">
                 <h6 style={{fontWeight: '540'}} class="card-title">&#9997; Article</h6>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}><p style={{fontWeight: '700', width:'90%'}} class="card-text">What if famous brands had regular fonts? Meet RegulaBrands!</p>
@@ -38,6 +40,8 @@ const Card = () => {
                 </div> 
                 <h6 style={{marginBottom: '30px', color: '#5C5C5C', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>I’ve worked in UX for the better part of a decade. From now on, I plan to reidf bsgakksa shly akssdjj shadkj</h6>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                
+                {breakpoints_desktop ? <>
                 <div style={{display: 'flex'}}>
                     <img style={{width: '40px', height: '40px'}} src={User1} alt='user1' />&nbsp;&nbsp;<h6 style={{fontSize: '15px', fontWeight: '700', marginTop: '10px'}}>Sarah West</h6>
                 </div>
@@ -48,14 +52,26 @@ const Card = () => {
                     <BsFillShareFill />
                     </button>
                 </div>
+                </> : <>
+                <div style={{display: 'flex'}}>
+                    <img style={{width: '40px', height: '40px'}} src={User1} alt='user1' />&nbsp;&nbsp;
+                    <div style={{display: 'flex', flexDirection: 'column'}}><h6 style={{fontSize: '15px', fontWeight: '700'}}>Sarthak Kamra</h6>
+                    <p style={{fontSize: '15px', color: '#525252', marginTop: '-8px', marginBottom: '0px'}}>1.4k views</p></div>
+                </div>
+                <div style={{display: 'flex'}}> 
+                    <button class="btn" style={{backgroundColor: '#EDEEF0'}} type="button">
+                    <BsFillShareFill /> &nbsp; Share
+                    </button>
+                </div>
+                </>}
                 </div>
             </div>
             </div>
 
             <br />
             {/* Card 2 */}
-            <div className='card' style={{width:'100%'}}>
-                <img src={card2} className='card-img-top' alt="Card 1 Image" />
+            <div className='card' style={{width:'100%', boxShadow: (breakpoints_desktop ? '' : '0px 1px 2px rgba(0, 0, 0, 0.12)'), border: (breakpoints_desktop ? '' : 'none')}}>
+                <img src={card2} className='card-img-top' alt="Card 2" />
                 <div class="card-body">
                 <h6 style={{fontWeight: '540'}} class="card-title">&#128300; Education</h6>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}><p style={{fontWeight: '700', width:'90%'}} class="card-text">Tax Benefits for Investment under National Pension Scheme launched by Government</p>
@@ -72,6 +88,8 @@ const Card = () => {
                 </div> 
                 <h6 style={{marginBottom: '30px', color: '#5C5C5C', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>I’ve worked in UX for the better part of a decade. From now on, I plan to reidf bsgakksa shly akssdjj shadkj</h6>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                
+                {breakpoints_desktop ? <>
                 <div style={{display: 'flex'}}>
                     <img style={{width: '40px', height: '40px'}} src={User2} alt='user1' />&nbsp;&nbsp;<h6 style={{fontSize: '15px', fontWeight: '700', marginTop: '10px'}}>Sarthak Kamra</h6>
                 </div>
@@ -82,13 +100,25 @@ const Card = () => {
                     <BsFillShareFill />
                     </button>
                 </div>
+                </>: <>
+                <div style={{display: 'flex'}}>
+                    <img style={{width: '40px', height: '40px'}} src={User2} alt='user1' />&nbsp;&nbsp;
+                    <div style={{display: 'flex', flexDirection: 'column'}}><h6 style={{fontSize: '15px', fontWeight: '700'}}>Sarah West</h6>
+                    <p style={{fontSize: '15px', color: '#525252', marginTop: '-8px', marginBottom: '0px'}}>4.8k views</p></div>
+                </div>
+                <div style={{display: 'flex'}}> 
+                    <button class="btn" style={{backgroundColor: '#EDEEF0'}} type="button">
+                    <BsFillShareFill />&nbsp; Share
+                    </button>
+                </div>
+                </>}
                 </div>
             </div>
             </div>
             <br />
 
             {/* Card 3 */}
-            <div class="card" style={{width: '100%'}}>
+            <div class="card" style={{width: '100%', boxShadow: (breakpoints_desktop ? '' : '0px 1px 2px rgba(0, 0, 0, 0.12)'), border: (breakpoints_desktop ? '' : 'none')}}>
             <img src={card3} class="card-img-top" alt="Third Pic" />
             <div class="card-body">
                 <h6 style={{fontWeight: '540'}} class="card-title">&#128197; Meetup</h6>
@@ -112,6 +142,8 @@ const Card = () => {
                 <button style={{borderRadius: '8px', color: '#E56135', borderColor: '#A9AEB8'}} type="button" class="btn w-100">Visit Website</button>
                 <br /><br />
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                
+                {breakpoints_desktop ? <>
                 <div style={{display: 'flex'}}>
                     <img style={{width: '40px', height: '40px'}} src={User3} alt='user1' />&nbsp;&nbsp;<h6 style={{fontSize: '15px', fontWeight: '700', marginTop: '10px'}}>Ronal Jones</h6>
                 </div>
@@ -122,13 +154,25 @@ const Card = () => {
                     <BsFillShareFill />
                     </button>
                 </div>
+                </> :<>
+                <div style={{display: 'flex'}}>
+                    <img style={{width: '40px', height: '40px'}} src={User3} alt='user1' />&nbsp;&nbsp;
+                    <div style={{display: 'flex', flexDirection: 'column'}}><h6 style={{fontSize: '15px', fontWeight: '700'}}>Ronal Jones</h6>
+                    <p style={{fontSize: '15px', color: '#525252', marginTop: '-8px', marginBottom: '0px'}}>800 views</p></div>
+                </div>
+                <div style={{display: 'flex'}}> 
+                    <button class="btn" style={{backgroundColor: '#EDEEF0'}} type="button">
+                    <BsFillShareFill />&nbsp; Share
+                    </button>
+                </div>
+                </>}
                 </div>
             </div>
             </div>
             <br />
 
             {/* Card4 */}
-            <div class="card" style={{width: '100%'}}>
+            <div class="card" style={{width: '100%', boxShadow: (breakpoints_desktop ? '' : '0px 1px 2px rgba(0, 0, 0, 0.12)'), border: (breakpoints_desktop ? '' : 'none')}}>
             <div class="card-body">
                 <h6 style={{fontWeight: '540'}} class="card-title">&#128188; Job</h6>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}><p style={{fontWeight: '700', width:'90%'}} class="card-text">Software Developer</p>
@@ -151,6 +195,8 @@ const Card = () => {
                 <button style={{borderRadius: '8px', color: '#02B875', borderColor: '#A9AEB8'}} type="button" class="btn w-100">Apply on Timesjobs</button>
                 <br /><br />
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                
+                {breakpoints_desktop ? <>
                 <div style={{display: 'flex'}}>
                     <img style={{width: '40px', height: '40px'}} src={User4} alt='user1' />&nbsp;&nbsp;<h6 style={{fontSize: '15px', fontWeight: '700', marginTop: '10px'}}>Joseph Gray</h6>
                 </div>
@@ -161,16 +207,26 @@ const Card = () => {
                     <BsFillShareFill />
                     </button>
                 </div>
+                </> : <>
+                <div style={{display: 'flex'}}>
+                    <img style={{width: '40px', height: '40px'}} src={User4} alt='user1' />&nbsp;&nbsp;
+                    <div style={{display: 'flex', flexDirection: 'column'}}><h6 style={{fontSize: '15px', fontWeight: '700'}}>Joseph Gray</h6>
+                    <p style={{fontSize: '15px', color: '#525252', marginTop: '-8px', marginBottom: '0px'}}>1.7k views</p></div>
+                </div>
+                <div style={{display: 'flex'}}> 
+                    <button class="btn" style={{backgroundColor: '#EDEEF0'}} type="button">
+                    <BsFillShareFill />&nbsp; Share
+                    </button>
+                </div>
+                </>}
                 </div>
             </div>
             </div>
             
             <br />
-            <br />
-            <br />
 
         </div>
-        </div>
+        // </div>
     // </div>
   )
 }

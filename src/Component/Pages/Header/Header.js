@@ -2,21 +2,16 @@ import React, { useContext } from 'react'
 import Logo from '../../../Asset/images/Union 1.png'
 import './Header.css'
 import {FiSearch} from 'react-icons/fi'
-import Login from '../Signup/Login'
 import { MyContext } from '../../../App'
 import User4 from '../../../Asset/images/Rectangle 3 (2).png'
 
 const Header = () => {
 
-    const {isSignedIn , setIsSignedIn} = useContext(MyContext);
-    // const {isSignedIn, setIsSignedIn} = useContext(MyContext);
-
-    // const breakpoints_desktop = useMediaQuery({});
-
-    console.log(isSignedIn);
-
+    const {isSignedIn} = useContext(MyContext);
+    
   return (
-    <div className="topbar">
+    <>
+    <div className="topbar d-none d-md-flex">
 
         {/* Logo ATG WORLD */}
         <h5 className='logo'>
@@ -62,6 +57,7 @@ const Header = () => {
         </div>
         
     </div>
+    </>
   )
 }
 
