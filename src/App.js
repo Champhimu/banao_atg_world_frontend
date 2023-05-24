@@ -22,7 +22,7 @@ const App = () => {
       console.log("Token received");
       console.log(loggedIn);
     }
-  })
+  },[setLogedIn])
 
   return (
     <div>
