@@ -22,7 +22,8 @@ const App = () => {
       console.log("Token received");
       console.log(loggedIn);
     }
-  },[setLogedIn])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
 
   return (
     <div>
