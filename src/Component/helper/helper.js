@@ -1,7 +1,7 @@
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
-axios.defaults.baseURL = "http://localhost:8080";
+axios.defaults.baseURL = "https://banao-atg-world-backend.onrender.com";
 
 // To get username from token
 export async function getUsername(){
