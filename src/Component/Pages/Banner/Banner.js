@@ -1,14 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import bannerimg from "../../../Asset/images/Rectangle 2.png";
 import { useMediaQuery } from "react-responsive";
-import { MyContext } from "../../../App";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
 const Banner = () => {
   const breakpoints_desktop = useMediaQuery({ query: "(min-width: 790px)" });
   const breakpoints_mobile = useMediaQuery({ query: "(min-width: 400px" });
 
-  const { isSignedIn, setIsSignedIn } = useContext(MyContext);
+  // const { isSignedIn, setIsSignedIn } = useContext(MyContext);
 
   return (
     <div style={{ backgroundColor: "black" }}>
@@ -21,7 +20,6 @@ const Banner = () => {
           width: "100%",
           height: breakpoints_desktop ? "440px" : breakpoints_mobile ? "300px" : "200px",
           opacity: "0.5",
-          marginTop: breakpoints_desktop ? "72px" : "",
         }}
       />
 
@@ -67,7 +65,7 @@ const Banner = () => {
               }}
             />
           </p>
-          {isSignedIn ? (
+          {/* {isSignedIn ? (
             <button
               onClick={() => setIsSignedIn(false)}
               style={{
@@ -84,7 +82,7 @@ const Banner = () => {
             >
               Leave Group
             </button>
-          ) : (
+          ) : ( */}
             <button
               style={{
                 position: "absolute",
@@ -103,7 +101,7 @@ const Banner = () => {
             >
               Join Group
             </button>
-          )}
+          {/* )} */}
         </>
       )}
     </div>

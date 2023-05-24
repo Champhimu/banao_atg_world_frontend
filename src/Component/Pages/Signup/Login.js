@@ -1,318 +1,188 @@
-import React, { useContext } from "react";
-import { MdOutlineClose } from "react-icons/md";
+import React from "react";
+import toast, { Toaster } from 'react-hot-toast';
 import { FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import abstract from "../../../Asset/images/atg_illustration.png";
-import { MyContext } from "../../../App";
+import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
+import { useFormik } from "formik";
+import loginSchema from '../../schemas/loginSchema';
+import {usernameValidate} from '../../helper/validate';
+import { verifyPassword } from "../../helper/helper";
 
 const Login = () => {
-  const { isSignedIn, setIsSignedIn } = useContext(MyContext);
+  const navigate = useNavigate();
+  const breakpoints_desktop = useMediaQuery({ query: "(min-width: 790px)" });
+  
+  const formik = useFormik({
+    initialValues : {
+        username: "",
+        password: "",
+    },
+    validationSchema: loginSchema,
+    validate: usernameValidate,
+    validateOnBlur: false,
+    validateOnChange: false,
+    onSubmit: async values => {
+        console.log("clicked");
+        console.log(values);
+        
+        // setUsername(values.username);
+        let loginPromise = verifyPassword(values);
+        console.log(loginPromise);
+
+        toast.promise(loginPromise, {
+            loading: 'Checking...',
+            success: <b>Login Successfully..</b>,
+            error: <b>Password not match!</b>
+        })
+
+        loginPromise.then(res => {
+            let {token} = res.data;
+            localStorage.setItem('token',token);
+            // setUsername(values.username);
+            // console.log(values.username);
+            navigate('/')
+            window.location.reload(false);
+          })
+    }
+})
 
   return (
     <>
-    {/* SignIn Desktop View  */}
-      <div
-        className="modal fade"
-        id="signupmodal"
-        tabIndex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <button
-          className="closebtn"
-          style={{
-            position: "relative",
-            backgroundColor: "white",
-            border: "none",
-            top: "14%",
-            left: "75%",
-            borderRadius: "100%",
-            opacity: "0.7",
-          }}
-          type="button"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        >
-          <MdOutlineClose fontSize={"1.5em"} style={{}} />
-        </button>
-        <div className="modal-dialog modal-lg modal-dialog-centered">
-          <div
-            style={{ borderRadius: "8px", border: "none" }}
-            className="modal-content"
-          >
-            <div
-              style={{
-                borderTopLeftRadius: "8px",
-                borderTopRightRadius: "8px",
-                border: "none",
-                backgroundColor: "#EFFFF4",
-                color: "#008A45",
-                fontSize: "15px",
-              }}
-              className="modal-header"
-            >
-              <h6
-                style={{ margin: "0 auto" }}
-                className="modal-title"
-                id="exampleModalLabel"
-              >
-                Let's learn, share & inspire each other with our passion for
-                computer engineering. Sign up now 🤘🏼
-              </h6>
-            </div>
-            <div className="modal-body">
-              <div
-                style={{
-                  marginLeft: "10px",
-                  marginRight: "10px",
-                  display: "flex",
-                  justifyContent: "space-between",
-                }}
-              >
-                <h3 style={{ fontWeight: "700" }}>Sign In</h3>
-                <p style={{ fontSize: "15px" }}>
-                  Don't have an account yet?{" "}
-                  <span
-                    data-bs-toggle="modal"
-                    data-bs-target="#staticBackdrop"
-                    data-bs-dismiss="modal"
-                    style={{ cursor: "pointer", color: "blue" }}
-                  >
-                    Create new for free!
-                  </span>
-                </p>
-              </div>
-              <br />
-              <div
-                style={{
-                  marginBottom: "5px",
-                  marginLeft: "10px",
-                  marginRight: "10px",
-                  display: "flex",
-                  justifyContent: "space-evenly",
-                }}
-              >
-                <div style={{ width: "50%" }}>
-                  <input
-                    style={{
-                      height: "45px",
-                      borderRadius: "0px",
-                      backgroundColor: "#F7F8FA",
-                    }}
-                    type="text"
-                    className="form-control"
-                    placeholder="Email"
-                    aria-describedby="addon-wrapping"
-                  />
-                  <input
-                    style={{
-                      height: "45px",
-                      borderTop: "none",
-                      borderRadius: "0px",
-                      backgroundColor: "#F7F8FA",
-                    }}
-                    type="password"
-                    className="form-control"
-                    placeholder="Password"
-                    aria-describedby="addon-wrapping"
-                  />
-                  <button
-                    onClick={() => setIsSignedIn(true)}
-                    data-bs-dismiss="modal"
-                    style={{
-                      height: "45px",
-                      marginTop: "15px",
-                      borderRadius: "25px",
-                      width: "100%",
-                    }}
-                    type="button"
-                    className="btn btn-primary"
-                  >
-                    Sign In
-                  </button>
-                  <br />
-                  <br />
-                  <button
-                    onClick={() => setIsSignedIn(true)}
-                    data-bs-dismiss="modal"
-                    style={{
-                      height: "40px",
-                      marginBottom: "5px",
-                      width: "100%",
-                      borderColor: "#D9D9DB",
-                    }}
-                    className="btn btn-sm"
-                    type="button"
-                  >
-                    <FaFacebook color="blue" fontSize={"1.2em"} /> Sign up with
-                    Facebook
-                  </button>
-                  <button
-                    onClick={() => setIsSignedIn(true)}
-                    data-bs-dismiss="modal"
-                    style={{
-                      height: "40px",
-                      width: "100%",
-                      borderColor: "#D9D9DB",
-                    }}
-                    className="btn btn-sm"
-                    type="button"
-                  >
-                    <FcGoogle fontSize={"1.2em"} /> Sign up with Google
-                  </button>
-                  <p
-                    style={{
-                      cursor: "pointer",
-                      fontSize: "13px",
-                      fontWeight: "600",
-                      marginTop: "15px",
-                      textAlign: "center",
-                    }}
-                  >
-                    Forgot Password?
-                  </p>
-                </div>
-                <div style={{ display: "grid", width: "50%" }}>
-                  <img
-                    style={{ margin: "0 auto", marginBottom: "-10px" }}
-                    alt="abstract"
-                    src={abstract}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Toaster position='top-center' reverseOrder={false}></Toaster>
+      <div className="d-flex aligns-items-center justify-content-center card text-center w-60 position-absolute top-50 start-50 translate-middle"
+        style={{ width: breakpoints_desktop ? "50%" : "100%" }}>
+        
 
-      {/* SignIn Mobile View- Bottom */}
-      <div
-        style={{ borderRadius: "8px 8px 0px 0px", height: "500px" }}
-        className="offcanvas offcanvas-bottom"
-        tabIndex="-1"
-        id="signupcanvas"
-        aria-labelledby="offcanvasBottomLabel"
-      >
-        <div className="offcanvas-header">
-          <h3
+        {breakpoints_desktop && (
+          <div className="card-header"
             style={{
-              fontWeight: "700",
-              marginTop: "5px",
-              marginBottom: "-5px",
-            }}
-          >
-            Welcome back!
-          </h3>
-          <button
-            style={{ marginBottom: "-5px" }}
-            type="button"
-            className="btn text-reset"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          >
-            <MdOutlineClose
-              color="white"
-              style={{
-                backgroundColor: "black",
-                borderRadius: "50%",
-                fontSize: "1.2em",
-              }}
-            />
-          </button>
-        </div>
-        <div className="offcanvas-body">
-          <input
+              borderTopLeftRadius: "8px",
+              borderTopRightRadius: "8px",
+              border: "none",
+              backgroundColor: "#EFFFF4",
+              color: "#008A45",
+              fontSize: "15px",
+            }}>
+            <h6 style={{ margin: "0 auto" }}>Let's learn, share & inspire each other with our passion for computer engineering. Sign up now 🤘🏼 </h6>
+          </div>
+        )}
+        <div className="card-body">
+          <div
             style={{
-              height: "45px",
-              borderRadius: "0px",
-              backgroundColor: "#F7F8FA",
-            }}
-            type="text"
-            className="form-control"
-            placeholder="Email"
-            aria-describedby="addon-wrapping"
-          />
-          <input
-            style={{
-              height: "45px",
-              borderTop: "none",
-              borderRadius: "0px",
-              backgroundColor: "#F7F8FA",
-            }}
-            type="password"
-            className="form-control"
-            placeholder="Password"
-            aria-describedby="addon-wrapping"
-          />
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <button
-              onClick={() => setIsSignedIn(true)}
-              data-bs-dismiss="offcanvas"
-              style={{
-                height: "45px",
-                marginTop: "15px",
-                borderRadius: "25px",
-                width: "100%",
-              }}
-              type="button"
-              className="btn btn-primary w-50"
-            >
-              Sign In
-            </button>
-            <p
-              data-bs-toggle="offcanvas"
-              data-bs-target="#createaccountcanvas"
-              data-bs-dismiss="offcanvas"
-              style={{
-                color: "#495057",
-                textDecoration: "underline",
-                cursor: "pointer",
-                marginTop: "25px",
-                marginBottom: "5px",
-              }}
-            >
-              or, Create Account
-            </p>
+              marginLeft: "10px",
+              marginRight: "10px",
+              display: "flex",
+              justifyContent: "space-between",
+            }}>
+            <h3 style={{ fontWeight: "700" }}> {breakpoints_desktop ? "Sign In" : "Welcome back!"} </h3>
+            
+            {breakpoints_desktop && (
+              <p style={{ fontSize: "15px" }}> Don't have an account yet?
+                <span onClick={() => navigate("/register")} style={{ cursor: "pointer", color: "blue" }}> Create new for free! </span>
+              </p>
+            )}
           </div>
           <br />
-          <button
-            onClick={() => setIsSignedIn(true)}
-            data-bs-dismiss="offcanvas"
+          <div
             style={{
-              height: "40px",
-              marginBottom: "10px",
-              width: "100%",
-              borderColor: "#D9D9DB",
-            }}
-            className="btn btn-sm"
-            type="button"
-          >
-            <FaFacebook color="blue" fontSize={"1.2em"} /> Sign up with Facebook
-          </button>
-          <button
-            onClick={() => setIsSignedIn(true)}
-            data-bs-dismiss="offcanvas"
-            style={{
-              height: "40px",
-              marginBottom: "20px",
-              width: "100%",
-              borderColor: "#D9D9DB",
-            }}
-            className="btn btn-sm"
-            type="button"
-          >
-            <FcGoogle fontSize={"1.2em"} /> Sign up with Google
-          </button>
-          <p
-            style={{
-              fontWeight: "600",
-              fontSize: "12px",
-              textAlign: "center",
-              margin: "0px 40px 0px 40px",
-            }}
-          >
-            Forgot Password?
-          </p>
+              marginBottom: "5px",
+              marginLeft: "10px",
+              marginRight: "10px",
+              display: "flex",
+              justifyContent: "space-evenly",
+            }}>
+            <div style={{ width: breakpoints_desktop ? "50%" : "100%" }}>
+              <form onSubmit={formik.handleSubmit}>
+              <input
+                style={{
+                  height: "45px",
+                  borderRadius: "0px",
+                  backgroundColor: "#F7F8FA",
+                  marginBottom: "10px",
+                }}
+                id='username' type="text" className="form-control" placeholder="Enter Username" value={formik.values.username} onChange={formik.handleChange} onBlur={formik.handleBlur}
+              />
+              <p className="text-danger">{formik.touched.username && formik.errors.username ? formik.errors.username : ""}</p>
+
+              <input
+                style={{
+                  height: "45px",
+                  borderRadius: "0px",
+                  backgroundColor: "#F7F8FA",
+                }} 
+                id='password' type="password" className="form-control" placeholder="Password" value={formik.values.password} onChange={formik.handleChange} onBlur={formik.handleBlur}
+              />
+              <p className="text-danger">{formik.touched.password && formik.errors.password ? formik.errors.password : ""}</p>
+
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <button
+                  style={{
+                    height: "45px",
+                    marginTop: "15px",
+                    borderRadius: "25px",
+                    width: breakpoints_desktop ? "100%" : "50%",
+                  }}
+                  type="submit" className="btn btn-primary"> Sign In
+                </button>
+                <p
+                  style={{
+                    color: "#495057",
+                    textDecoration: "underline",
+                    cursor: "pointer",
+                    marginTop: "25px",
+                    marginBottom: "5px",
+                  }}
+                  className="d-md-none d-md-flex" onClick={() => navigate("/register")}> or, Create Account
+                </p>
+              </div>
+              </form>
+              <br />
+              <br />
+              <button
+                style={{
+                  height: "40px",
+                  marginBottom: "5px",
+                  width: "100%",
+                  borderColor: "#D9D9DB",
+                }}
+                className="btn btn-sm" type="button"
+              >
+                <FaFacebook color="blue" fontSize={"1.2em"} /> Sign up with Facebook
+              </button>
+              <button
+                style={{
+                  height: "40px",
+                  width: "100%",
+                  borderColor: "#D9D9DB",
+                }}
+                className="btn btn-sm" type="button"
+              >
+                <FcGoogle fontSize={"1.2em"} /> Sign up with Google
+              </button>
+              <p
+                style={{
+                  cursor: "pointer",
+                  fontSize: "13px",
+                  fontWeight: "600",
+                  marginTop: "15px",
+                  textAlign: "center",
+                }}
+                onClick={() => navigate("/forgot/password")}>
+                Forgot Password?
+              </p>
+            </div>
+            {breakpoints_desktop && (
+              <div style={{ display: "grid", width: "50%" }}>
+                <img
+                  style={{ margin: "0 auto", marginBottom: "-10px" }}
+                  alt="abstract"
+                  src={abstract}
+                />
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </>

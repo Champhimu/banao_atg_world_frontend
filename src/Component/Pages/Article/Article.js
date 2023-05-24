@@ -3,8 +3,6 @@ import GroupIcon from "../../../Asset/images/Vector.png";
 import Card from "./Card";
 import InfoIcon from "../../../Asset/images/Vector (3).png";
 import { MdOutlineLocationOn, MdModeEdit, MdOutlineClose } from "react-icons/md";
-import Signup from "../Signup/Signup";
-import { MyContext } from "../../../App";
 import { BsBoxArrowInRight } from "react-icons/bs";
 
 import FollowUser1 from "../../../Asset/images/Rectangle 6.png";
@@ -15,10 +13,16 @@ import FollowUser4 from "../../../Asset/images/Rectangle 6 (3).png";
 import { useMediaQuery } from "react-responsive";
 import float from "../../../Asset/images/float.png";
 import likeicon from "../../../Asset/images/Vector (4).png";
+import Banner from "../Banner/Banner";
+import { MyContext } from "../../../App";
+import { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const Article = () => {
 
-  const { isSignedIn, setIsSignedIn } = useContext(MyContext);
+  const {loggedIn} = useContext(MyContext);
+  const navigate = useNavigate();
+  // const { isSignedIn, setIsSignedIn } = useContext(MyContext);
   const [locationEditEnabled, setLocationEditEnabled] = useState(false);
   const [locationUpdate, setLocationUpdate] = useState("Noida, India");
   const [follow_groups, setFollow_groups] = useState([
@@ -40,6 +44,9 @@ const Article = () => {
 
   return (
     <>
+    <Toaster position='top-center' reverseOrder={false}></Toaster>
+    <Banner />
+
       {/* Article Nav */}
       <div
         style={{
@@ -85,6 +92,7 @@ const Article = () => {
                 className="btn-group"
               >
                 <button
+                  onClick={()=>navigate('/create-post')}
                   className="btn btn-sm"
                   style={{ backgroundColor: "#EDEEF0" }}
                   type="button"
@@ -99,10 +107,10 @@ const Article = () => {
               </div>
 
               {/* If User Signed In Group Button will change */}
-              {isSignedIn ? (
+              {loggedIn ? (
                 <>
                   <button
-                    onClick={() => setIsSignedIn(false)}
+                    // onClick={() => setIsSignedIn(false)}
                     style={{
                       width: "134px",
                       color: "#6A6A6B",
@@ -292,7 +300,7 @@ const Article = () => {
                 Your location will help us serve better and extend a personalised experience.
               </p>
             </div>
-            <div style={{ display: !isSignedIn && "none" }}>
+            {/* <div style={{ display: loggedIn && "none" }}> */}
               <br />
               <br />
 
@@ -358,13 +366,13 @@ const Article = () => {
               >
                 See More...
               </p>
-            </div>
+            {/* </div>  */}
           </div>
         )}
       </div>
 
       
-      <Signup />
+      {/* <Signup /> */}
 
       {/* Float icon for Mobile View*/}
       {!breakpoints_desktop && (
