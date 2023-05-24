@@ -32,7 +32,7 @@ const Reset = () => {
         error : <b>Could not Reset!</b>
       });
 
-      resetPromise.then(function(){ navigate('/login') })
+      resetPromise.then(function(){ navigate('/') })
 
         }
     })
@@ -78,7 +78,7 @@ const Reset = () => {
                 backgroundColor: "#F7F8FA",
                 marginRight: "8px",
               }}
-              id='cpassword' type="text" className="form-control" placeholder="Enter Username" value={formik.values.cpassword} onChange={formik.handleChange} onBlur={formik.handleBlur}
+              id='cpassword' type="password" className="form-control" placeholder="Enter Username" value={formik.values.cpassword} onChange={formik.handleChange} onBlur={formik.handleBlur}
             />
             <p className="text-danger">{formik.touched.cpassword && formik.errors.cpassword ? formik.errors.cpassword : ""}</p>
         </div>

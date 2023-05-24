@@ -9,6 +9,8 @@ import Recovery from './Component/Pages/Signup/Recovery';
 import Reset from './Component/Pages/Signup/Reset';
 import Article from './Component/Pages/Article/Article';
 import CreatePost from './Component/Pages/Posts/CreatePost';
+import ErrorPage from './Component/Pages/ErrorPage';
+import EditPost from './Component/Pages/Posts/EditPost';
 
 export const MyContext = createContext("");
 
@@ -21,6 +23,7 @@ const App = () => {
       setLogedIn(true);
       console.log("Token received");
       console.log(loggedIn);
+      console.log(localStorage.getItem('userId'))
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
@@ -37,6 +40,8 @@ const App = () => {
         <Route path='/recovery' element={<Recovery />} />
         <Route path='/reset' element={<Reset /> }/>
         <Route path='/create-post' element={<CreatePost />} />
+        <Route path='/postEdit/:id' element={<EditPost />} />
+        <Route path="/*" element={<ErrorPage/>} />
       </Routes>
       </MyContext.Provider>
       </BrowserRouter>

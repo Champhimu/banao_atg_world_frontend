@@ -10,15 +10,18 @@ const CreatePost = () => {
     const breakpoints_desktop = useMediaQuery({ query: "(min-width: 790px)" });
     const navigate = useNavigate();
     const id = localStorage.getItem("userId");
+    console.log(localStorage);
     const [file, setFile] = useState();
 
+    console.log(id);
+    
     const formik = useFormik({
-        initialValues : {
-              title: "",
-              description: "",
-              category: "",
-              user: id,
-        },
+      initialValues : {
+        title: "",
+        description: "",
+        category: "",
+        user: id,
+      },
         validateOnBlur: false,
         validateOnChange: false,
         onSubmit: async values => {
@@ -26,15 +29,15 @@ const CreatePost = () => {
           values = await Object.assign(values, {image : file || ''})
           console.log(values);
 
-          let registerPromise = createPost(values)
+          let createPostPromise = createPost(values)
 
-          toast.promise(registerPromise, {
+          toast.promise(createPostPromise, {
             loading: 'Creating...',
-            success: <b>Register Successfully..!</b>,
+            success: <b>Post Register Successfully..!</b>,
             error: <b>Could not upload Post.</b>
           })
   
-          registerPromise.then(function() {navigate('/')});
+          createPostPromise.then(function() {navigate('/')});
         }
     })
 

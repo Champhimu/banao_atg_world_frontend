@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import GroupIcon from "../../../Asset/images/Vector.png";
-import Card from "./Card";
+import CardPost from '../Posts/CardPost'
 import InfoIcon from "../../../Asset/images/Vector (3).png";
 import { MdOutlineLocationOn, MdModeEdit, MdOutlineClose } from "react-icons/md";
 import { BsBoxArrowInRight } from "react-icons/bs";
@@ -188,7 +188,9 @@ const Article = () => {
             border: breakpoints_desktop ? "" : "none",
           }}
         >
-          <Card />
+          {/* <Card /> */}
+          <CardPost />
+
         </div>
 
         {/* Article-Right Location */}
@@ -380,7 +382,7 @@ const Article = () => {
           href=" "
           style={{ position: "fixed", right: "10px", bottom: "10px" }}
         >
-          <img style={{ cursor: "pointer" }} alt="float" src={float} />
+          <img style={{ cursor: "pointer" }} alt="float" src={float} onClick={() => navigate('/create-post')} />
         </a>
       )}
     </>

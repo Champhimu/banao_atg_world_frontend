@@ -1,7 +1,8 @@
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
-axios.defaults.baseURL = "https://banao-atg-world-backend.onrender.com";
+// axios.defaults.baseURL = "https://banao-atg-world-backend.onrender.com";
+axios.defaults.baseURL = "http://localhost:8080/";
 
 // To get username from token
 export async function getUsername(){
@@ -32,6 +33,16 @@ export async function createPost(credentials){
     }
 }
 
+export async function updatePost(credentials){
+    try{
+        const {data} = await axios.put(`/api/update-post/${credentials.id}`,credentials);
+        if (data?.success)
+        return Promise.resolve({data})
+    }catch(error){
+        return Promise.reject({error})
+    }
+}
+
 /** authenticate function */
 export async function authenticate(username){
     try {
@@ -46,6 +57,9 @@ export async function verifyPassword({username, password}){
     try {
         if(username){
             const { data } = await axios.post('/api/login', { username, password })
+            console.log(data);
+            localStorage.setItem("userId", data?.user._id);
+            // console.log(localStorage.getItem('userId'));
             return Promise.resolve({ data });
         }
     }catch (error) {

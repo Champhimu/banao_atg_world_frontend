@@ -29,6 +29,7 @@ const ForgotPassword = () => {
 
   return (
     <>
+    
     <Toaster position='top-center' reverseOrder={false}></Toaster>
     <div
       className="d-flex aligns-items-center justify-content-center card text-center w-60 position-absolute top-50 start-50 translate-middle"
