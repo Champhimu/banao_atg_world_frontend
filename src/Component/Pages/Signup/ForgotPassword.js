@@ -22,7 +22,7 @@ const ForgotPassword = () => {
     onSubmit: async values => {
         console.log(values)
         setUsername(values.username);
-        navigate('/')
+        navigate('/recovery')
         // console.log(username);
     }
 })

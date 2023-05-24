@@ -31,7 +31,7 @@ const CreatePost = () => {
           toast.promise(registerPromise, {
             loading: 'Creating...',
             success: <b>Register Successfully..!</b>,
-            error: <b>Could not Register.</b>
+            error: <b>Could not upload Post.</b>
           })
   
           registerPromise.then(function() {navigate('/')});
