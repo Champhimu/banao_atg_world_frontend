@@ -16,6 +16,7 @@ const Header = () => {
 
   function userLogout(){
     localStorage.removeItem('token')
+    localStorage.clear();
     navigate('/')
     setLogedIn(false);
   }

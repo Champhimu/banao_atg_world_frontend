@@ -1,11 +1,9 @@
-import { useFormik } from 'formik';
 import React, {useEffect, useState} from 'react'
 import axios from "axios";
 import toast, { Toaster } from 'react-hot-toast';
 import { useMediaQuery } from 'react-responsive';
 import { useNavigate, useParams } from 'react-router-dom';
 import convertToBase64 from '../../helper/convert';
-import { updatePost } from '../../helper/helper';
 
 const EditPost = () => {
     const breakpoints_desktop = useMediaQuery({ query: "(min-width: 790px)" });
@@ -17,6 +15,7 @@ const EditPost = () => {
     const id = useParams().id;
 
     console.log(id);
+    console.log(post?.user);
     const getPostDetail = async () => {
         try{
             // console.log("id"+id);
@@ -35,36 +34,37 @@ const EditPost = () => {
         }
     }
 
-    const formik = useFormik({
-        initialValues : {
-          title: "inputs.title",
-          description: "inputs.description",
-          category: "inputs.category",
-          user: id,
-        },
-          validateOnBlur: false,
-          validateOnChange: false,
-          onSubmit: async values => {
-            console.log("clicked");
-            values = await Object.assign(values, {image : file || ''}, id)
-            console.log(values);
-  
-            let updatePostPromise = updatePost(values)
-  
-            toast.promise(updatePostPromise, {
-              loading: 'Creating...',
-              success: <b>Post Updated Successfully..!</b>,
-              error: <b>Could not update Post.</b>
-            })
-    
-            updatePostPromise.then(function() {navigate('/')});
-          }
-      })
+    const onUpload = async e => {
+      const base64 = await convertToBase64(e.target.files[0]);
+      // inputs(base64);
+      setFile(base64);
+      console.log(base64);
+    }
 
-      const onUpload = async e => {
-        const base64 = await convertToBase64(e.target.files[0]);
-        setFile(base64);
-        console.log(base64);
+    const handleChange = (e) => {
+      setInputs((prevState) => ({
+        ...prevState,
+        [e.target.name]: e.target.value,
+      }))
+    }
+
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try{
+        const { data } = await axios.put(`/api/update-post/${id}`,{
+          category: inputs.category,
+          title: inputs.title,
+          description: inputs.description,
+          image: file || inputs.image,
+          user: post?.user,
+        })
+        if(data?.success) {
+          toast.success("Post Updated");
+          navigate('/');
+        }
+      }catch(error){
+        console.log(error);
+      }
     }
 
     useEffect(() => {
@@ -107,8 +107,8 @@ const EditPost = () => {
           justifyContent: "space-evenly",
         }}>
           <div style={{ width: breakpoints_desktop ? "100%" : "50" }}>
-            <form onSubmit={formik.handleSubmit}>
-            <img src={file || inputs.image} height="20%" className='card-img-top' alt="cardimage"/>
+            <form onSubmit={handleSubmit}>
+            <img src={file || inputs.image} className="img-fluid w-100" style={{height:'220px'}} alt="cardimage"/>
             <input className="form-control" type="file" id="formFile" onChange={onUpload}
             style={{
                 height: "39px",
@@ -118,28 +118,26 @@ const EditPost = () => {
             }}/>
 
             <input
-            {...formik.getFieldProps('category')}
               style={{
                 height: "45px",
                 borderRadius: "0px",
                 backgroundColor: "#F7F8FA",
                 marginBottom: "10px",
             }}
-            value= {inputs.category}
-            id='username' type="text" className="form-control" placeholder="Enter Category"  
+            name="category" value= {inputs.category} onChange={handleChange}
+            type="text" className="form-control" placeholder="Enter Category"  
             />
             {/* <p className="text-danger">{formik.touched.username && formik.errors.username ? formik.errors.username : ""}</p> */}
 
             <input
-            {...formik.getFieldProps('title')}
               style={{
                 height: "45px",
                 borderRadius: "0px",
                 backgroundColor: "#F7F8FA",
                 marginBottom: "10px",
               }} 
-              value={inputs.title}
-              id='title' type="text" className="form-control" placeholder="Enter Title" 
+              name="title" value={inputs.title} onChange={handleChange}
+              type="text" className="form-control" placeholder="Enter Title" 
 
             />
             {/* <p className="text-danger">{formik.touched.email && formik.errors.email ? formik.errors.email : ""}</p> */}
@@ -150,8 +148,8 @@ const EditPost = () => {
                 backgroundColor: "#F7F8FA",
                 marginBottom: "10px",
               }}
-              value= {inputs.description}
-              id='password' className="form-control" placeholder="Enter description" rows={3} name="description"
+              name="description" value= {inputs.description} onChange={handleChange}
+              id='password' className="form-control" placeholder="Enter description" rows={3} 
             />
             {/* <p className="text-danger">{formik.touched.password && formik.errors.password ? formik.errors.password : ""}</p> */}
             
@@ -162,19 +160,10 @@ const EditPost = () => {
                   marginTop: "15px",
                   borderRadius: "25px",
                   width: breakpoints_desktop ? "100%" : "50%",
+                  textAlign: 'center'
                 }}
                 type="submit" className="btn btn-primary">  Update Post
               </button>
-              <p
-                style={{
-                  color: "#495057",
-                  textDecoration: "underline",
-                  cursor: "pointer",
-                  marginTop: "25px",
-                  marginBottom: "5px",
-                }}
-                className="d-md-none d-md-flex" onClick={() => navigate("/")}> or, Sign In
-              </p>
             </div>
             </form>
             <br />

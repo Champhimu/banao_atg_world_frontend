@@ -3,7 +3,7 @@ import menuicon from "../../../Asset/images/Vector (2).png";
 import avatar from "../../../Asset/images/profile.png";
 import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
-import {AiOutlineEye} from 'react-icons/ai';
+import {AiOutlineEye, AiOutlineHeart, AiTwotoneHeart} from 'react-icons/ai';
 import { BsFillShareFill } from "react-icons/bs";
 import { useMediaQuery } from 'react-responsive';
 import { useNavigate } from 'react-router-dom';
@@ -14,6 +14,7 @@ const CardPost = () => {
     const breakpoints_desktop = useMediaQuery({ query: "(min-width: 790px)" });
     const id = localStorage.getItem("userId");
     const navigate = useNavigate();
+    const [like, setLike] = useState(false);
 
     const getAllPosts = async () => {
         try{
@@ -49,6 +50,8 @@ const CardPost = () => {
     const handleEdit = (postid) => {
         navigate(`/postEdit/${postid}`)
     }
+
+    console.log(posts);
   return (
     <div>
     <Toaster position='top-center' reverseOrder={false}></Toaster>
@@ -58,14 +61,14 @@ const CardPost = () => {
       posts.map((post) => (
         <>
         <div
-        id={post?._id}
+        key={post?._id}
         className="card"
         style={{
           width: "100%",
           boxShadow: breakpoints_desktop ? "" : "0px 1px 2px rgba(0, 0, 0, 0.12)",
           border: breakpoints_desktop ? "" : "none",
         }}>
-        <img src={post?.image} className="card-img-top" alt="Card 1" />
+        <img src={post?.image} className="img-fluid w-100" style={{height:'220px'}} alt="Card 1" />
         <div className="card-body">
           <h6 style={{ fontWeight: "540" }} className="card-title"> &#9997; {post?.category} </h6>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -88,9 +91,9 @@ const CardPost = () => {
               </button>
               <ul className="dropdown-menu dropdown-menu-end">
                 <li>
-                    {console.log(post?.user_id !== id)}
-                    {console.log(post?.user._id,id)}
-                  <button className="dropdown-item" type="button" disabled = {post?.user._id !== id} onClick={() => handleEdit(post?._id)}>
+                    {/* {console.log(post?.user_id !== id)}
+                    {console.log(post?.user._id,id)} */}
+                  <button className="dropdown-item" type="button" disabled = {post?.user._id !== id} onClick={() => handleEdit(post?._id)} >
                     Edit
                   </button>
                 </li>
@@ -140,6 +143,7 @@ const CardPost = () => {
                     {post?.user.username}
                   </h6>
                 </div>
+                <div onClick={() => setLike(true)} style={{fontSize: '1.5em', color: 'red'}}>{like ? <AiTwotoneHeart /> : <AiOutlineHeart />}</div>
                 <div style={{ display: "flex" }}>
                   <AiOutlineEye
                     style={{ width: "18px", height: "18px", marginTop: "10px" }}
@@ -208,7 +212,7 @@ const CardPost = () => {
         </>
       )) 
       ) : (
-        <h1 className='text-center mt-5'>No Post Yet....</h1>
+        <h1 className='text-center mt-5'>No Post Yet </h1>
       )
     }
     </div>

@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import bannerimg from "../../../Asset/images/Rectangle 2.png";
 import { useMediaQuery } from "react-responsive";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import { MyContext } from "../../../App";
+import { useNavigate } from "react-router-dom";
 
 const Banner = () => {
   const breakpoints_desktop = useMediaQuery({ query: "(min-width: 790px)" });
   const breakpoints_mobile = useMediaQuery({ query: "(min-width: 400px" });
-
+  const navigate = useNavigate();
   // const { isSignedIn, setIsSignedIn } = useContext(MyContext);
+  const {loggedIn, setLogedIn} = useContext(MyContext);
+
+  function userLogout(){
+    localStorage.removeItem('token')
+    localStorage.clear();
+    navigate('/')
+    setLogedIn(false);
+  }
 
   return (
     <div style={{ backgroundColor: "black" }}>
@@ -65,9 +75,9 @@ const Banner = () => {
               }}
             />
           </p>
-          {/* {isSignedIn ? (
+          {loggedIn ? (
             <button
-              onClick={() => setIsSignedIn(false)}
+              onClick={userLogout}
               style={{
                 position: "absolute",
                 borderColor: "white",
@@ -82,7 +92,7 @@ const Banner = () => {
             >
               Leave Group
             </button>
-          ) : ( */}
+          ) : (
             <button
               style={{
                 position: "absolute",
@@ -101,7 +111,7 @@ const Banner = () => {
             >
               Join Group
             </button>
-          {/* )} */}
+            )} 
         </>
       )}
     </div>

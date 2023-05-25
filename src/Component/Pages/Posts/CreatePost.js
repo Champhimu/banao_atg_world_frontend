@@ -33,7 +33,7 @@ const CreatePost = () => {
 
           toast.promise(createPostPromise, {
             loading: 'Creating...',
-            success: <b>Post Register Successfully..!</b>,
+            success: <b>Post Created Successfully..!</b>,
             error: <b>Could not upload Post.</b>
           })
   

@@ -20,7 +20,7 @@ import { useNavigate } from "react-router-dom";
 
 const Article = () => {
 
-  const {loggedIn} = useContext(MyContext);
+  const {loggedIn, setLogedIn} = useContext(MyContext);
   const navigate = useNavigate();
   // const { isSignedIn, setIsSignedIn } = useContext(MyContext);
   const [locationEditEnabled, setLocationEditEnabled] = useState(false);
@@ -41,6 +41,13 @@ const Article = () => {
   }; 
 
   const breakpoints_desktop = useMediaQuery({ query: "(min-width: 790px)" });
+
+  function userLogout(){
+    localStorage.removeItem('token')
+    localStorage.clear();
+    navigate('/')
+    setLogedIn(false);
+  }
 
   return (
     <>
@@ -120,7 +127,7 @@ const Article = () => {
                     type="button"
                   >
                     <span><BsBoxArrowInRight fontSize={"1.5em"} /></span>
-                    &nbsp; Leave Group
+                    <span onClick={userLogout}>&nbsp; Leave Group </span>
                   </button>
                 </>
               ) : (

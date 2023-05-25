@@ -33,16 +33,6 @@ export async function createPost(credentials){
     }
 }
 
-export async function updatePost(credentials){
-    try{
-        const {data} = await axios.put(`/api/update-post/${credentials.id}`,credentials);
-        if (data?.success)
-        return Promise.resolve({data})
-    }catch(error){
-        return Promise.reject({error})
-    }
-}
-
 /** authenticate function */
 export async function authenticate(username){
     try {
