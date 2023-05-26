@@ -134,16 +134,6 @@ const CreatePost = () => {
                     }}
                     type="submit" className="btn btn-primary">  Create Post
                   </button>
-                  <p
-                    style={{
-                      color: "#495057",
-                      textDecoration: "underline",
-                      cursor: "pointer",
-                      marginTop: "25px",
-                      marginBottom: "5px",
-                    }}
-                    className="d-md-none d-md-flex" onClick={() => navigate("/")}> or, Sign In
-                  </p>
                 </div>
                 </form>
                 <br />

@@ -387,9 +387,9 @@ const Article = () => {
       {!breakpoints_desktop && (
         <a
           href=" "
-          style={{ position: "fixed", right: "10px", bottom: "10px" }}
+          style={{ position: "fixed", right: "10px", bottom: "10px" }} onClick={() => navigate('/create-post') }
         >
-          <img style={{ cursor: "pointer" }} alt="float" src={float} onClick={() => navigate('/create-post')} />
+          <img style={{ cursor: "pointer" }} alt="float" src={float} />
         </a>
       )}
     </>
