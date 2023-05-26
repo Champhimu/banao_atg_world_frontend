@@ -385,12 +385,11 @@ const Article = () => {
 
       {/* Float icon for Mobile View*/}
       {!breakpoints_desktop && (
-        <a
-          href=" "
+        <p
           style={{ position: "fixed", right: "10px", bottom: "10px" }} onClick={() => navigate('/create-post') }
         >
           <img style={{ cursor: "pointer" }} alt="float" src={float} />
-        </a>
+        </p>
       )}
     </>
   );
